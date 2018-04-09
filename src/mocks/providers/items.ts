@@ -4,12 +4,13 @@ import { Item } from '../../models/item';
 
 @Injectable()
 export class Items {
+  
   items: Item[] = [];
 
   defaultItem: any = {
-    "name": "Burt Bear",
+    "name": "Nova Inspeção",
     "profilePic": "assets/img/speakers/bear.jpg",
-    "about": "Burt is a Bear.",
+    "about": "Registre uma nova inspeção e detalhe as ocorrências.",
   };
 
 
@@ -17,38 +18,126 @@ export class Items {
     let items = [
       {
         "name": "Burt Bear",
-        "profilePic": "assets/img/speakers/bear.jpg",
-        "about": "Burt is a Bear."
+        "profilePic": "assets/img/inspecao/metal1.jpg",
+        "about": "Burt is a Bear.",
+        "date": "01/01/2019",
+        "dataInspecao": "01/01/2019",
+        "dataAprovado": "01/01/2019",
+        "resumo": "Mordedura; Poros; Trinca; Cordão Fino; Falta de Fusão; Cordão Largo; Respingo; Desalinhamento; Falta de Penetração",
+        "aprovado": true,
+        "soldador": "Evert T.",
+        "inspetor": "Eng. Eduardo M.",
+        "mordedura": true,
+        "poros": true,
+        "trinca": true,
+        "cordaoFino": true,
+        "faltaFusao": true,
+        "cordaoLargo": true,
+        "respingo": true,
+        "desalinhamento": true,
+        "faltaPenetracao": true
       },
       {
         "name": "Charlie Cheetah",
-        "profilePic": "assets/img/speakers/cheetah.jpg",
-        "about": "Charlie is a Cheetah."
+        "profilePic": "assets/img/inspecao/metal2.jpg",
+        "about": "Charlie is a Cheetah.",
+        "date": "02/01/2019",
+        "dataInspecao": "02/01/2019",
+        "dataAprovado": "02/01/2019",
+        "resumo": "Mordedura; Poros; Trinca; Cordão Fino; Falta de Fusão; Cordão Largo; Respingo; Desalinhamento; Falta de Penetração",
+        "aprovado": false,
+        "soldador": "Evert T.",
+        "inspetor": "Eng. Eduardo M.",
+        "mordedura": true,
+        "poros": true,
+        "trinca": false,
+        "cordaoFino": true,
+        "faltaFusao": true,
+        "cordaoLargo": true,
+        "respingo": true,
+        "desalinhamento": true,
+        "faltaPenetracao": true
       },
       {
         "name": "Donald Duck",
-        "profilePic": "assets/img/speakers/duck.jpg",
-        "about": "Donald is a Duck."
+        "profilePic": "assets/img/inspecao/metal3.jpg",
+        "about": "Donald is a Duck.",
+        "date": "03/01/2019",
+        "dataInspecao": "03/01/2019",
+        "dataAprovado": "03/01/2019",
+        "resumo": "Mordedura; Poros; Trinca; Cordão Fino; Falta de Fusão; Cordão Largo;",
+        "aprovado": false,
+        "soldador": "Evert T.",
+        "inspetor": "Eng. Eduardo M.",
+        "mordedura": true,
+        "poros": true,
+        "trinca": false,
+        "cordaoFino": true,
+        "faltaFusao": true,
+        "cordaoLargo": true
       },
       {
         "name": "Eva Eagle",
-        "profilePic": "assets/img/speakers/eagle.jpg",
-        "about": "Eva is an Eagle."
+        "profilePic": "assets/img/inspecao/metal4.jpg",
+        "about": "Eva is an Eagle.",
+        "date": "04/01/2019",
+        "dataInspecao": "04/01/2019",
+        "dataAprovado": "04/01/2019",
+        "resumo": "Mordedura; Poros; Falta de Penetração",
+        "aprovado": true,
+        "soldador": "Evert T.",
+        "inspetor": "Eng. Eduardo M.",
+        "mordedura": true,
+        "poros": true,
+        "trinca": false,
+        "cordaoFino": false,
+        "faltaFusao": false,
+        "cordaoLargo": false,
+        "respingo": false,
+        "desalinhamento": false,
+        "faltaPenetracao": true
       },
       {
         "name": "Ellie Elephant",
-        "profilePic": "assets/img/speakers/elephant.jpg",
-        "about": "Ellie is an Elephant."
+        "profilePic": "assets/img/inspecao/metal5.jpg",
+        "about": "Ellie is an Elephant.",
+        "date": "05/01/2019",
+        "dataInspecao": "05/01/2019",
+        "dataAprovado": "05/01/2019",
+        "resumo": "Mordedura; Poros; Cordão Largo; Respingo; Desalinhamento; Falta de Penetração",
+        "aprovado": true,
+        "soldador": "Evert T.",
+        "inspetor": "Eng. Eduardo M.",
+        "mordedura": true,
+        "poros": true,
+        "trinca": false,
+        "cordaoFino": false,
+        "faltaFusao": false,
+        "cordaoLargo": true,
+        "respingo": false,
+        "desalinhamento": true,
+        "faltaPenetracao": true
       },
       {
         "name": "Molly Mouse",
-        "profilePic": "assets/img/speakers/mouse.jpg",
-        "about": "Molly is a Mouse."
-      },
-      {
-        "name": "Paul Puppy",
-        "profilePic": "assets/img/speakers/puppy.jpg",
-        "about": "Paul is a Puppy."
+        "profilePic": "assets/img/inspecao/metal6.jpg",
+        "about": "Molly is a Mouse.",
+        "date": "06/01/2019",
+        "dataInspecao": "06/01/2019",
+        "dataAprovado": "06/01/2019",
+        "resumo": "Mordedura",
+        "aprovado": true,
+        "soldador": "Evert T.",
+        "inspetor": "Eng. Eduardo M.",
+        "mordedura": true,
+        "poros": false,
+        "trinca": false,
+        "cordaoFino": false,
+        "faltaFusao": false,
+        "cordaoLargo": false,
+        "respingo": false,
+        "desalinhamento": false,
+        "faltaPenetracao": false
       }
     ];
 

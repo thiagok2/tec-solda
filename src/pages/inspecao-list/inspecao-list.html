@@ -1,0 +1,58 @@
+<ion-header>
+
+    <ion-toolbar >
+    	<ion-buttons start left>
+      		<button ion-button icon-only menuToggle left>
+        		<ion-icon name="menu"></ion-icon>
+     		</button>
+    	</ion-buttons>
+
+    	<ion-title>EPI</ion-title>
+   
+
+    	<ion-buttons end right>  
+      		<button ion-button icon-only>
+        		<ion-icon name="contact"></ion-icon>
+      		</button>
+    	</ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-fab top right>
+    	<button ion-fab><ion-icon name="add"></ion-icon></button>
+	</ion-fab>
+	<ion-card *ngFor="let item of currentItems">
+
+		<ion-item>
+	    	<ion-avatar item-start>
+	      		<ion-icon name="contact"></ion-icon>
+	    	</ion-avatar>
+	    	<h2>{{item.soldador}}</h2>
+	    	<p>{{item.date}}</p>
+	  	</ion-item>
+
+	  	<img [src]="item.profilePic">
+
+	  	<ion-item>
+	    	<ion-avatar item-start>
+	      		<ion-icon name="clipboard"></ion-icon>
+	    	</ion-avatar>
+	    	<h2>{{item.inspetor}}</h2>
+	    	<ion-avatar item-end >
+	      		<ion-icon name="thumbs-up" *ngIf="item.aprovado"></ion-icon>
+	      		<ion-icon name="thumbs-down" *ngIf="!item.aprovado"></ion-icon>
+	    	</ion-avatar>
+	  	</ion-item>
+
+	  	<ion-card-content>
+	      	<ion-icon name="ios-pricetag-outline" large></ion-icon>
+	    	{{ item.resumo }}
+	  	</ion-card-content>
+
+	    <button ion-button block (click)="abrirDetalhes(item)">Detalhes</button>
+  	</ion-card>
+
+</ion-content>

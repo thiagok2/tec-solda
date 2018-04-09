@@ -21,33 +21,25 @@ export class TutorialPage {
 
   constructor(public navCtrl: NavController, public menu: MenuController, translate: TranslateService, public platform: Platform) {
     this.dir = platform.dir();
-    translate.get(["TUTORIAL_SLIDE1_TITLE",
-      "TUTORIAL_SLIDE1_DESCRIPTION",
-      "TUTORIAL_SLIDE2_TITLE",
-      "TUTORIAL_SLIDE2_DESCRIPTION",
-      "TUTORIAL_SLIDE3_TITLE",
-      "TUTORIAL_SLIDE3_DESCRIPTION",
-    ]).subscribe(
-      (values) => {
-        console.log('Loaded values', values);
-        this.slides = [
+
+  
+      this.slides = [
           {
-            title: values.TUTORIAL_SLIDE1_TITLE,
-            description: values.TUTORIAL_SLIDE1_DESCRIPTION,
-            image: 'assets/img/ica-slidebox-img-1.png',
+            title: 'Processo MIG',
+            description: 'Aprenda a realizar os calculos sobre...',
+            image: 'assets/img/icon1.png',
           },
           {
-            title: values.TUTORIAL_SLIDE2_TITLE,
-            description: values.TUTORIAL_SLIDE2_DESCRIPTION,
-            image: 'assets/img/ica-slidebox-img-2.png',
+            title: 'Processo MAG',
+            description: 'Qual segmentação usar? Qual temperatura? Aprenda junto com esse app',
+            image: 'assets/img/icon2.jpg',
           },
           {
-            title: values.TUTORIAL_SLIDE3_TITLE,
-            description: values.TUTORIAL_SLIDE3_DESCRIPTION,
-            image: 'assets/img/ica-slidebox-img-3.png',
+            title: 'Processo Eletrodo Revestido',
+            description: 'Qual o tipo de eletrôdo usar em determinada situação?',
+            image: 'assets/img/icon3.png',
           }
         ];
-      });
   }
 
   startApp() {
@@ -62,8 +54,7 @@ export class TutorialPage {
   }
 
   ionViewDidEnter() {
-    // the root left menu should be disabled on the tutorial page
-    this.menu.enable(false);
+    this.menu.enable(true);
   }
 
   ionViewWillLeave() {

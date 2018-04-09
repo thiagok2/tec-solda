@@ -1,0 +1,92 @@
+<!--
+  Generated template for the ParamCalcPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Espessura E.R.</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="form-calc">
+	<ion-item>
+		Posição plana
+	</ion-item>
+	<ion-item>
+		Soldagem de Topo com Chanfro Reto
+	</ion-item>
+	<ion-item padding>
+		<ion-label>Espessura Aproximada</ion-label>
+	    <ion-select [(ngModel)]="paramsCalc.espessura" (ionChange)="eventSelectEspessura($event)">
+	    	<ion-option *ngFor="let item of espessurasArray" [value]="item">{{item}} (mm)</ion-option>
+	    </ion-select>
+	</ion-item>
+
+	<ion-item padding *ngIf="hasSelectNumPasse">
+		<ion-label>Num. Passes</ion-label>
+	    <ion-select [(ngModel)]="paramsCalc.numPasse">
+	    	<ion-option *ngFor="let passe of passesArray" [value]="passe">{{passe}}</ion-option>
+	    </ion-select>
+	</ion-item>
+
+	
+	<button ion-button full icon-right (click)="calcular()">
+		Calcular
+		 <ion-icon name="calculator"></ion-icon>
+	</button>
+	
+
+	<ion-list *ngIf="showResultados">
+
+		<ion-item  *ngIf="especificaoProcesso.paramCalc.hasNumPerna">
+			<ion-label>Perna de Solda (mm)</ion-label>
+		   	<ion-input type="text" readonly="true" [(ngModel)]="especificaoProcesso.pernaSolda"></ion-input>
+		</ion-item>
+
+		<ion-item  *ngIf="especificaoProcesso.paramCalc.hasNumPasse">
+			<ion-label>Nº de Passes</ion-label>
+			<ion-input type="text" readonly="true" [(ngModel)]="especificaoProcesso.numPasses"></ion-input>
+		</ion-item>
+
+		<ion-item >
+			<ion-label>Class. do Eletrôdo (AWS)</ion-label>
+		   	<ion-input type="text" readonly="true" [(ngModel)]="especificaoProcesso.classificacaoEletrotoAWS"></ion-input>
+		</ion-item>
+
+		<ion-item >
+			<ion-label>Diâmetro do Eletrôdo (mm)</ion-label>
+		   	<ion-input type="text" readonly="true" [(ngModel)]="especificaoProcesso.diametroEletrodo">
+		   	</ion-input>
+		</ion-item>
+
+		<ion-item >
+			<ion-label>Corrente (A)</ion-label>
+		   	<ion-input type="text" readonly="true" 
+		   		[(ngModel)]="especificaoProcesso.correnteEletricaIntervalo"></ion-input>
+		</ion-item>
+
+		<ion-item >
+			<ion-label>Veloc. Soldagem (cm/min)</ion-label>
+		   	<ion-input type="text" readonly="true" [(ngModel)]="especificaoProcesso.velocidadeSoldagemIntervalo"></ion-input>
+		</ion-item>	
+	</ion-list>
+
+
+	 <ion-fab right bottom>
+	 	<button ion-fab color="primary"><ion-icon name="print"></ion-icon></button>
+	 </ion-fab>
+
+	 <ion-fab left bottom>
+	 	<button ion-fab color="primary"><ion-icon name="md-share"></ion-icon></button>
+
+	 	<ion-fab-list side="top">
+	    	<button ion-fab><ion-icon name="logo-whatsapp"></ion-icon></button>
+	    	<button ion-fab><ion-icon name="mail"></ion-icon></button>
+	    </ion-fab-list>
+	 </ion-fab>
+</ion-content>

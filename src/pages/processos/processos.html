@@ -1,0 +1,53 @@
+<ion-header>
+
+ 	<ion-toolbar >
+    	<ion-buttons start left>
+      		<button ion-button icon-only menuToggle left>
+          		<ion-icon name="menu"></ion-icon>
+      		</button>
+    	</ion-buttons>
+
+    	<ion-title>EPI</ion-title>
+   
+
+    	<ion-buttons end right>  
+    		<button ion-button icon-only>
+        		<ion-icon name="contact"></ion-icon>
+      		</button>
+    	</ion-buttons>
+  	</ion-toolbar>
+
+  
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+	    <ion-item (click)="eletrodoRevestido()">
+	      <ion-thumbnail item-start>
+	        <img src="assets/img/arco-eletrico.jpg">
+	      </ion-thumbnail>
+	      <h2>Processo Eletrôdo Revestido</h2>
+	      <p>Soldagem manual a arco elétrico</p>
+	    
+	    </ion-item>
+
+	    <ion-item (click)="migMag()">
+	      <ion-thumbnail item-start>
+	        <img src="assets/img/mig-mag.png">
+	      </ion-thumbnail>
+	      <h2>MIG / MAG</h2>
+	      <p>Soldagem MIG (Metal Inert Gas) ou MAG (Metal Active Gas),</p>
+	    </ion-item>
+
+	     <ion-item (click)="tig()">
+	      <ion-thumbnail item-start>
+	        <img src="assets/img/tig.png">
+	      </ion-thumbnail>
+	      <h2>TIG</h2>
+	      <p>TIG(Tungsten Inert Gas) é um processo de soldagem a arco elétrico entre um eletrodo não consumível de tungstênio e a e a peça de fusão com proteção gasosa.</p>
+	    </ion-item>
+
+
+	</ion-list>
+</ion-content>

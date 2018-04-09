@@ -1,0 +1,111 @@
+<!--
+  Generated template for the InspecaoEditPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+   <ion-toolbar >
+    	<ion-buttons start left>
+      		<button ion-button icon-only menuToggle left>
+        		<ion-icon name="menu"></ion-icon>
+     		</button>
+    	</ion-buttons>
+
+    	<ion-title>EPI</ion-title>
+   
+
+    	<ion-buttons end right>  
+      		<button ion-button icon-only>
+        		<ion-icon name="contact"></ion-icon>
+      		</button>
+    	</ion-buttons>
+    </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <button ion-button block (click)="inspecao()">Voltar</button>
+
+   
+	<img [src]="item.profilePic">
+
+	<ion-item>
+		<ion-label>Data Inspeção</ion-label>
+		<ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="item.dataInspecao"></ion-datetime>
+	</ion-item>
+
+	<ion-item>
+		<ion-label>Soldador</ion-label>
+		<ion-select [(ngModel)]="item.soldador">
+	    	<ion-option value="Evert T.">Evert T.</ion-option>
+	    	<ion-option value="Alex V.">Alex V.</ion-option>
+	    	<ion-option value="André B.">André B.</ion-option>
+	    </ion-select>
+	</ion-item>
+
+	<ion-item>
+		<ion-label>Inspetor</ion-label>
+		<ion-select [(ngModel)]="item.inspetor">
+	    	<ion-option value="Eduardo Malvadeza">Eduardo Malvadeza</ion-option>
+	    	<ion-option value="Cleunis Brandão">Cleunis Brandão</ion-option>
+	    </ion-select>
+	</ion-item>
+
+	<ion-item>
+    	<ion-label>Mordedura</ion-label>
+    	<ion-toggle [(ngModel)]="item.mordedura"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    	<ion-label>Poros</ion-label>
+    	<ion-toggle [(ngModel)]="item.poros"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    	<ion-label>Trinca</ion-label>
+    	<ion-toggle [(ngModel)]="item.trinca"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    	<ion-label>Cordão Fino</ion-label>
+    	<ion-toggle [(ngModel)]="item.cordaoFino"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    	<ion-label>Falta de Fusão</ion-label>
+    	<ion-toggle [(ngModel)]="item.trinca"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    	<ion-label>Cordão Largo</ion-label>
+        <ion-toggle [(ngModel)]="item.cordaoLargo"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    	<ion-label>Respingo</ion-label>
+        <ion-toggle [(ngModel)]="item.respingo"></ion-toggle>
+    </ion-item>
+     <ion-item>
+    	<ion-label>Desalinhamento</ion-label>
+        <ion-toggle [(ngModel)]="item.desalinhamento"></ion-toggle>
+    </ion-item>
+     <ion-item>
+    	<ion-label>Falta de Penetracão</ion-label>
+        <ion-toggle [(ngModel)]="item.faltaPenetracao"></ion-toggle>
+    </ion-item>
+
+   
+	<ion-grid>
+		<ion-row>
+	  		<ion-col width-50>
+	  			<button  style="width:100%" ion-button large color="danger" outline>
+	  				 <ion-icon name="thumbs-down" ></ion-icon>
+	  			</button>
+	  		</ion-col>
+	  		<ion-col width-50>
+	  			<button  style="width:100%" ion-button large color="secondary" outline>
+	  				<ion-icon name="thumbs-up" ></ion-icon>
+	  			</button>
+	  		</ion-col>
+		</ion-row>
+	</ion-grid>
+   
+	
+</ion-content>

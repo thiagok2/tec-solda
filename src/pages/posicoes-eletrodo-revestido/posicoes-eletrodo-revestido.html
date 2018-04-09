@@ -1,0 +1,86 @@
+<!--
+  Generated template for the PosicoesEletrodoRevestidoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Selecionar</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+	    <ion-item (click)="posicaoPlanaReto()">
+	      <ion-thumbnail item-start>
+	        <img src="assets/img/posicoes/posicao-plana_reta.png">
+	      </ion-thumbnail>
+	      <h2>Posição Plana</h2>
+	      <p>Soldagem de topo com chanfro reto</p>
+	    
+	    </ion-item>
+
+	    <ion-item (click)="posicaoPlanaV()">
+	      <ion-thumbnail item-start>
+	        <img src="assets/img/posicoes/posicao-plana-v.png">
+	      </ion-thumbnail>
+	      <h2>Posição Plana</h2>
+	      <p>Soldagem de topo com chanfro em V</p>
+	    
+	    </ion-item>
+
+	    <ion-item (click)="posicaoPlanaHorizontal()">
+	      <ion-thumbnail item-start>
+	        <img src="assets/img/posicoes/posicao-plana-horizontal.png">
+	      </ion-thumbnail>
+	      <h2>Posição Plana e Horizontal</h2>
+	      <p>Soldagem em ângulo</p>
+	    
+	    </ion-item>
+
+	    <ion-item (click)="posicaoPlanaAngulo()">
+	    	<ion-thumbnail item-start>
+	        	<img src="assets/img/posicoes/soldagem-plana-angulo.png">
+	      	</ion-thumbnail>
+	      	<h2>Posição Plana</h2>
+	      	<p>Soldagem em ângulo</p>
+	    </ion-item>
+
+	     <ion-item (click)="soldagemDeTopo()">
+	    	<ion-thumbnail item-start>
+	        	<img src="assets/img/posicoes/soldagem-topo.png">
+	      	</ion-thumbnail>
+	      	<h2>Soldagem de Topo</h2>
+	      	<p>Vertical descendente</p>
+	     
+	    </ion-item>
+
+	     <ion-item (click)="soldagemDeTopoV()">
+	    	<ion-thumbnail item-start>
+	        	<img src="assets/img/posicoes/soldagem-topo-chanfro-v.png">
+	      	</ion-thumbnail>
+	      	<h2>Posição Plana</h2>
+	      	<p>
+	      		Chanfro em V
+	      		<br>
+	      		Posição sobrecabeça
+	      	</p>
+	    </ion-item>
+
+	    <ion-item (click)="soldagemEmAngulo()">
+	    	<ion-thumbnail item-start>
+	        	<img src="assets/img/posicoes/soldagem-angulo-sobrecarga.png">
+	      	</ion-thumbnail>
+	      	<h2>Soldagem em Ângulo</h2>
+	      	<p>Posição sobrecabeça</p>
+	    </ion-item>
+	</ion-list>
+
+</ion-content>
