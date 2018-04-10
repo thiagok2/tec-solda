@@ -13,7 +13,7 @@
      		</button>
     	</ion-buttons>
 
-    	<ion-title>EPI</ion-title>
+    	<ion-title>Inspeção</ion-title>
    
 
     	<ion-buttons end right>  
@@ -29,8 +29,7 @@
 <ion-content padding>
     <button ion-button block (click)="inspecao()">Voltar</button>
 
-   
-	<img [src]="item.profilePic">
+    <img [src]="item.foto">
 
 	<ion-item>
 		<ion-label>Data Inspeção</ion-label>
@@ -95,17 +94,33 @@
 	<ion-grid>
 		<ion-row>
 	  		<ion-col width-50>
-	  			<button  style="width:100%" ion-button large color="danger" outline>
-	  				 <ion-icon name="thumbs-down" ></ion-icon>
+
+	  			<button  style="width:100%" ion-button large color="danger" outline (click)="reprovar()" *ngIf="item.aprovado">
+	  				 <ion-icon name="thumbs-down" >1</ion-icon>
 	  			</button>
+
+                <button  style="width:100%" ion-button large color="danger" (click)="reprovar()" *ngIf="!item.aprovado">
+                     <ion-icon name="thumbs-down" >2</ion-icon>
+                </button>
+
 	  		</ion-col>
 	  		<ion-col width-50>
-	  			<button  style="width:100%" ion-button large color="secondary" outline>
-	  				<ion-icon name="thumbs-up" ></ion-icon>
+
+	  			<button  style="width:100%" ion-button large color="secondary" (click)="aprovar()" *ngIf="item.aprovado">
+	  				<ion-icon name="thumbs-up" >1</ion-icon>
 	  			</button>
+
+                <button  style="width:100%" ion-button large color="secondary" outline (click)="aprovar()" *ngIf="!item.aprovado">
+                    <ion-icon name="thumbs-up" >2</ion-icon>
+                </button>
+
 	  		</ion-col>
 		</ion-row>
 	</ion-grid>
+
+    <button ion-button block (click)="salvar()">Salvar</button>
+
+
    
 	
 </ion-content>

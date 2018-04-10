@@ -7,7 +7,7 @@
      		</button>
     	</ion-buttons>
 
-    	<ion-title>EPI</ion-title>
+    	<ion-title>Inspeções</ion-title>
    
 
     	<ion-buttons end right>  
@@ -22,7 +22,7 @@
 
 <ion-content padding>
 	<ion-fab top right>
-    	<button ion-fab><ion-icon name="add"></ion-icon></button>
+    	<button ion-fab (click)="novaInspecao()"><ion-icon name="add"></ion-icon></button>
 	</ion-fab>
 	<ion-card *ngFor="let item of currentItems">
 

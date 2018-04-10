@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 
 
 import { Item } from '../../models/item';
+import { Inspecao } from '../../models/inspecao';
+
 import { Items } from '../../providers/providers';
 
 
@@ -12,6 +14,8 @@ import { Items } from '../../providers/providers';
   templateUrl: 'inspecao-list.html',
 })
 export class InspecaoListPage {
+
+  inspecaoItems: Inspecao[];
 
 	currentItems: Item[];
 
@@ -24,5 +28,9 @@ export class InspecaoListPage {
     		item: item
         });
   	}
+
+    novaInspecao(){
+      this.navCtrl.push('InspecaoNewPage');
+    }
 
 }

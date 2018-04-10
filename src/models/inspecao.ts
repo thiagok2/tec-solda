@@ -6,6 +6,8 @@ export class Inspecao{
 	soldador: string;
 	inspetor: string;
 
+	foto;//base64
+
 	observacoes: string;
 
 	aprovado: boolean;
