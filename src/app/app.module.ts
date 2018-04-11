@@ -53,7 +53,12 @@ export function provideSettings(storage: Storage) {
     }),
     IonicModule.forRoot(MyApp, {
       tabsPlacement: 'top',
-      backButtonText: ''
+      backButtonText: '',
+      monthNames: ['janeiro', 'fevereiro', 'mar\u00e7o','abril', 
+                    'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro','novembro','dezembro' ],
+      monthShortNames: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez' ],
+      dayNames: ['domingo', 'segunda-feira', 'ter\u00e7a-feira', 'quarta-feira','quinta-feira','sexta-feira','s\u00e1bado'],
+      dayShortNames: ['dom', 'seg', 'ter', 'qua', 'qui',  'sex', 'sab' ]
      }),
     IonicStorageModule.forRoot()
   ],

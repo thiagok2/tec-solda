@@ -20,10 +20,10 @@ import { Inspecao } from '../../models/inspecao'
 })
 export class InspecaoNewPage {
 
-	/**
-   * Declarando a variável onde será adicionado o base64 da foto
-   */
-	currentPhoto;
+	  /**
+     * Declarando a variável onde será adicionado o base64 da foto
+     */
+	  currentPhoto;
 
   	constructor(
   			public navCtrl: NavController, 
@@ -45,21 +45,25 @@ export class InspecaoNewPage {
 
     	this.camera.getPicture(options).then((imageData) => {
 
-    	this.currentPhoto = 'data:image/jpeg;base64,' + imageData;
+    	  this.currentPhoto = 'data:image/jpeg;base64,' + imageData;
 
     	}, (err) => {
       // Handle error
     	});
- 	 }
+ 	  }
 
- 	 avancar(){
+ 	  avancar(){
 
- 	 	let novaInspecao = new Inspecao();
+   	 	let novaInspecao = new Inspecao();
 
- 	 	novaInspecao.foto = this.currentPhoto;
- 	 	this.navCtrl.push('InspecaoEditPage',{
- 	 		inspecao: novaInspecao
- 	 	})
- 	 }
+   	 	novaInspecao.foto = this.currentPhoto;
+   	 	this.navCtrl.push('InspecaoEditPage',{
+   	 		inspecao: novaInspecao
+   	 	})
+   	}
+
+    voltar(){
+      this.navCtrl.push('InspecaoListPage');
+    }
 
 }

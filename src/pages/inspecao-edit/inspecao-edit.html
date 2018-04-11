@@ -38,7 +38,7 @@
 
 	<ion-item>
 		<ion-label>Soldador</ion-label>
-		<ion-select [(ngModel)]="item.soldador">
+		<ion-select [(ngModel)]="item.soldador" cancelText="Cancelar" okText="OK">
 	    	<ion-option value="Evert T.">Evert T.</ion-option>
 	    	<ion-option value="Alex V.">Alex V.</ion-option>
 	    	<ion-option value="André B.">André B.</ion-option>
@@ -47,9 +47,9 @@
 
 	<ion-item>
 		<ion-label>Inspetor</ion-label>
-		<ion-select [(ngModel)]="item.inspetor">
-	    	<ion-option value="Eduardo Malvadeza">Eduardo Malvadeza</ion-option>
-	    	<ion-option value="Cleunis Brandão">Cleunis Brandão</ion-option>
+		<ion-select [(ngModel)]="item.inspetor" cancelText="Cancelar" okText="OK">
+	    	<ion-option value="Eduardo Malvadeza">Eduardo M.</ion-option>
+	    	<ion-option value="Cleunis Brandão">Cleunis B.</ion-option>
 	    </ion-select>
 	</ion-item>
 
@@ -95,25 +95,16 @@
 		<ion-row>
 	  		<ion-col width-50>
 
-	  			<button  style="width:100%" ion-button large color="danger" outline (click)="reprovar()" *ngIf="item.aprovado">
-	  				 <ion-icon name="thumbs-down" >1</ion-icon>
+	  			<button  style="width:100%" ion-button large color="danger" [outline]="item.aprovado" (click)="reprovar()">
+	  				 <ion-icon name="thumbs-down" ></ion-icon>
 	  			</button>
-
-                <button  style="width:100%" ion-button large color="danger" (click)="reprovar()" *ngIf="!item.aprovado">
-                     <ion-icon name="thumbs-down" >2</ion-icon>
-                </button>
 
 	  		</ion-col>
 	  		<ion-col width-50>
 
-	  			<button  style="width:100%" ion-button large color="secondary" (click)="aprovar()" *ngIf="item.aprovado">
-	  				<ion-icon name="thumbs-up" >1</ion-icon>
+	  			<button  style="width:100%" ion-button large color="secondary" (click)="aprovar()" [outline]="!item.aprovado">
+	  				<ion-icon name="thumbs-up" ></ion-icon>
 	  			</button>
-
-                <button  style="width:100%" ion-button large color="secondary" outline (click)="aprovar()" *ngIf="!item.aprovado">
-                    <ion-icon name="thumbs-up" >2</ion-icon>
-                </button>
-
 	  		</ion-col>
 		</ion-row>
 	</ion-grid>
