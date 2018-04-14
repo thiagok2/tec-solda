@@ -22,6 +22,9 @@
 		<img *ngIf="currentPhoto" src="{{currentPhoto}}"/>
 
 
+		<img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
+
+
 		<ion-card-content>
       		<ion-card-title>
         		
@@ -45,7 +48,7 @@
 		    </ion-col>
 
 		    <button ion-button block (click)="avancar()" >Avançar</button>
-		    <button ion-button block (click)="avancar()" >Descartar</button>
+		    <button ion-button block (click)="voltar()" >Voltar</button>
   		</ion-row>
     	
 	</ion-card>

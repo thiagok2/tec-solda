@@ -22,4 +22,8 @@ export class ModalEmBrevePage {
     console.log('ionViewDidLoad ModalEmBrevePage');
   }
 
+  voltar(){
+  	this.navCtrl.pop();
+  }
+
 }

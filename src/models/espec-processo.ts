@@ -3,6 +3,8 @@ import {ParamsCalc} from './param-calc'
 
 export class EspecProcesso{
 
+	calculado: boolean;
+
 	paramCalc: ParamsCalc;
 
 	numPasses: number;
@@ -53,6 +55,8 @@ export class EspecProcesso{
 		this.diametroEletrodo = diametroEletrodoArray[indice];
 		this.correnteEletricaIntervalo = correnteEletricaIntervaloArray[indice];
 		this.velocidadeSoldagemIntervalo = velocidadeSoldagemIntervaloArray[indice];
+
+		this.calculado = true;
 	}
 
 	buildPosicaoPlanaV(){
@@ -62,6 +66,8 @@ export class EspecProcesso{
 		//let velocidadeSoldagemIntervaloArray = ['15 - 20','30 - 35','15 - 20','30 - 35','15 - 20','20 - 25','25 - 30'];
 		//EXPESSURA_POSICAO_PLANA_SOLDAGEM_TOPO_V
 		//this.numPasses = paramCalc.numPasse;
+
+		this.calculado = false;
 
 	}
 
@@ -81,6 +87,8 @@ export class EspecProcesso{
 		this.diametroEletrodo = diametroEletrodoArray[indice];
 		this.correnteEletricaIntervalo = correnteEletricaIntervaloArray[indice];
 		this.velocidadeSoldagemIntervalo = velocidadeSoldagemIntervaloArray[indice];
+
+		this.calculado = true;
 	}
 
 	buildPosicaoPlanaAngulo(){
@@ -100,6 +108,8 @@ export class EspecProcesso{
 		this.diametroEletrodo = diametroEletrodoArray[indice];
 		this.correnteEletricaIntervalo = correnteEletricaIntervaloArray[indice];
 		this.velocidadeSoldagemIntervalo = velocidadeSoldagemIntervaloArray[indice];
+
+		this.calculado = true;
 	}
 
 	buildSoldagemDeTopo(){
@@ -116,10 +126,14 @@ export class EspecProcesso{
 		this.diametroEletrodo = diametroEletrodoArray[indice];
 		this.correnteEletricaIntervalo = correnteEletricaIntervaloArray[indice];
 		this.velocidadeSoldagemIntervalo = velocidadeSoldagemIntervaloArray[indice];
+
+		this.calculado = true;
 	}
 
 	buildSoldagemDeTopoV(){
 		//EXPESSURA_SOLDAGEM_TOPO_V_SOBRECABECA
+
+		this.calculado = false;
 	}
 
 	buildSoldagemEmAngulo(){
@@ -138,6 +152,7 @@ export class EspecProcesso{
 		this.velocidadeSoldagemIntervalo = velocidadeSoldagemIntervaloArray[indice];
 
 
+		this.calculado = true;
 	}
 
 

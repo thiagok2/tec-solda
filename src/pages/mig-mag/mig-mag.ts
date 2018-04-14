@@ -22,4 +22,12 @@ export class MigMagPage {
     console.log('ionViewDidLoad MigMagPage');
   }
 
+  avancar(){
+  	this.navCtrl.push('ModalEmBrevePage');
+  }
+
+  voltar(){
+    this.navCtrl.push('ProcessosPage');
+  }
+
 }

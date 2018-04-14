@@ -22,4 +22,11 @@ export class TigPage {
     console.log('ionViewDidLoad TigPage');
   }
 
+  avancar(){
+  	this.navCtrl.push('ModalEmBrevePage');
+  }
+
+  voltar(){
+    this.navCtrl.push('ProcessosPage');
+  }
 }

@@ -30,7 +30,9 @@ export class PosicoesEletrodoRevestidoPage {
       posicao: "posicaoPlanaReto",
     	select_num_passe: false,
     	num_passe: true,
-    	num_perna: false
+    	num_perna: false,
+      titulo: "Posição Plana",
+      subtitulo: "Soldagem de topo com chanfro reto"
     });
   }
 
@@ -40,7 +42,9 @@ export class PosicoesEletrodoRevestidoPage {
     	posicao: "posicaoPlanaV",
     	select_num_passe: true,
     	num_passe: false,
-    	num_perna: false
+    	num_perna: false,
+      titulo: "Posição Plana",
+      subtitulo: "Soldagem de topo com chanfro em V"
     });
 
   }
@@ -51,7 +55,9 @@ export class PosicoesEletrodoRevestidoPage {
     	posicao: "posicaoPlanaHorizontal",
     	select_num_passe: false,
     	num_passe: true,
-    	num_perna: false
+    	num_perna: false,
+      titulo: "Posição Plana e Horizontal",
+      subtitulo: "Soldagem em ângulo"
     });
   }
 
@@ -61,7 +67,9 @@ export class PosicoesEletrodoRevestidoPage {
     	posicao: "posicaoPlanaAngulo",
     	select_num_passe: false,
     	num_passe: true,
-    	num_perna: true
+    	num_perna: true,
+      titulo: "Posição Plana e Horizontal",
+      subtitulo: "Soldagem em ângulo"
     });
   }
 
@@ -71,7 +79,9 @@ export class PosicoesEletrodoRevestidoPage {
     	posicao: "soldagemDeTopo",
     	select_num_passe: false,
     	num_passe: true,
-    	num_perna: false
+    	num_perna: false,
+      titulo: "Soldagem de Topo",
+      subtitulo: "Vertical descendente"
     });
   }
 
@@ -81,18 +91,22 @@ export class PosicoesEletrodoRevestidoPage {
     	posicao: "soldagemDeTopoV",
     	select_num_passe: true,
     	num_passe: false,
-    	num_perna: false
+    	num_perna: false,
+      titulo: "Posição Plana",
+      subtitulo: "Chanfro em V - Posição sobrecabeça"
     });
   }
 
   soldagemEmAngulo(){
-	this.navCtrl.push('ParamCalcPage', {
-      index_posicao: 7,
-    	posicao: "soldagemEmAngulo",
-    	select_num_passe: false,
-    	num_passe: true,
-    	num_perna: true
-    });
+  	this.navCtrl.push('ParamCalcPage', {
+        index_posicao: 7,
+      	posicao: "soldagemEmAngulo",
+      	select_num_passe: false,
+      	num_passe: true,
+      	num_perna: true,
+        titulo: "Soldagem em Ângulo",
+        subtitulo: "Posição sobrecabeça"
+      });
   }
 
 }
