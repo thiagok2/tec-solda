@@ -17,11 +17,7 @@ export class Items {
   constructor() {
     let items = [
       {
-        "name": "Burt Bear",
-        "profilePic": "assets/img/inspecao/metal1.jpg",
         "foto": "assets/img/inspecao/metal1.jpg",
-        "about": "Burt is a Bear.",
-        "date": "01/01/2019",
         "dataInspecao": "01/01/2019",
         "dataAprovado": "01/01/2019",
         "resumo": "Mordedura; Poros; Trinca; Cordão Fino; Falta de Fusão; Cordão Largo; Respingo; Desalinhamento; Falta de Penetração",
@@ -39,11 +35,7 @@ export class Items {
         "faltaPenetracao": true
       },
       {
-        "name": "Charlie Cheetah",
-        "profilePic": "assets/img/inspecao/metal2.jpg",
         "foto": "assets/img/inspecao/metal2.jpg",
-        "about": "Charlie is a Cheetah.",
-        "date": "02/01/2019",
         "dataInspecao": "02/01/2019",
         "dataAprovado": "02/01/2019",
         "resumo": "Mordedura; Poros; Trinca; Cordão Fino; Falta de Fusão; Cordão Largo; Respingo; Desalinhamento; Falta de Penetração",
@@ -61,11 +53,7 @@ export class Items {
         "faltaPenetracao": true
       },
       {
-        "name": "Donald Duck",
-        "profilePic": "assets/img/inspecao/metal3.jpg",
         "foto": "assets/img/inspecao/metal3.jpg",
-        "about": "Donald is a Duck.",
-        "date": "03/01/2019",
         "dataInspecao": "03/01/2019",
         "dataAprovado": "03/01/2019",
         "resumo": "Mordedura; Poros; Trinca; Cordão Fino; Falta de Fusão; Cordão Largo;",
@@ -80,11 +68,7 @@ export class Items {
         "cordaoLargo": true
       },
       {
-        "name": "Eva Eagle",
-        "profilePic": "assets/img/inspecao/metal4.jpg",
         "foto": "assets/img/inspecao/metal4.jpg",
-        "about": "Eva is an Eagle.",
-        "date": "04/01/2019",
         "dataInspecao": "04/01/2019",
         "dataAprovado": "04/01/2019",
         "resumo": "Mordedura; Poros; Falta de Penetração",
@@ -102,11 +86,7 @@ export class Items {
         "faltaPenetracao": true
       },
       {
-        "name": "Ellie Elephant",
-        "profilePic": "assets/img/inspecao/metal5.jpg",
         "foto": "assets/img/inspecao/metal5.jpg",
-        "about": "Ellie is an Elephant.",
-        "date": "05/01/2019",
         "dataInspecao": "05/01/2019",
         "dataAprovado": "05/01/2019",
         "resumo": "Mordedura; Poros; Cordão Largo; Respingo; Desalinhamento; Falta de Penetração",
@@ -124,11 +104,7 @@ export class Items {
         "faltaPenetracao": true
       },
       {
-        "name": "Molly Mouse",
-        "profilePic": "assets/img/inspecao/metal6.jpg",
         "foto": "assets/img/inspecao/metal6.jpg",
-        "about": "Molly is a Mouse.",
-        "date": "06/01/2019",
         "dataInspecao": "06/01/2019",
         "dataAprovado": "06/01/2019",
         "resumo": "Mordedura",

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { CalculoSoldagemPage } from '../calculo-soldagem/calculo-soldagem';
-
 /**
  * Generated class for the PosicoesEletrodoRevestidoPage page.
  *

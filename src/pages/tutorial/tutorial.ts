@@ -25,20 +25,21 @@ export class TutorialPage {
   
       this.slides = [
           {
-            title: 'Processo MIG',
-            description: 'Aprenda a realizar os calculos sobre...',
-            image: 'assets/img/icon1.png',
-          },
-          {
-            title: 'Processo MAG',
-            description: 'Qual segmentação usar? Qual temperatura? Aprenda junto com esse app',
-            image: 'assets/img/icon2.jpg',
-          },
-          {
             title: 'Processo Eletrodo Revestido',
             description: 'Qual o tipo de eletrôdo usar em determinada situação?',
-            image: 'assets/img/icon3.png',
+            image: 'assets/img/icon-arcoeletrico.jpg',
           }
+          ,{
+            title: 'Processo MIG/MAG',
+            description: 'Aprenda a realizar os calculos sobre...',
+            image: 'assets/img/icon-migmag.png',
+          },
+          {
+            title: 'Processo TIG',
+            description: 'Qual segmentação usar? Qual temperatura? Aprenda junto com esse app',
+            image: 'assets/img/icon-tig.png',
+          }
+         
         ];
   }
 

@@ -6,12 +6,7 @@ import {Items} from '../../mocks/providers/items'
 
 import { Api } from '../api/api';
 
-/*
-  Generated class for the InspecaoProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class InspecaoProvider {
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, LoadingController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, AlertController   } from 'ionic-angular';
 
 import {ParamsCalc} from '../../models/param-calc'
 
@@ -40,7 +40,7 @@ export class ParamCalcPage {
 
 	constructor(public navCtrl: NavController, 
 		public navParams: NavParams,
-		public loadingCtrl: LoadingController,
+    public alertCtrl: AlertController,
 		public toastCtrl: ToastController) {
 
   		this.posicao = navParams.get('posicao');
@@ -89,20 +89,12 @@ export class ParamCalcPage {
 	}
 
   mensagemIndisponivel(){
-   let loader = this.loadingCtrl.create({
-        content: "Calculo ainda não disponível",
-        duration: 5000
+     let alert = this.alertCtrl.create({
+      title: 'Cálculo Indisponível',
+      subTitle: 'Desculpas! O cálculo ainda não está disponível.',
+      buttons: ['OK']
     });
-    loader.present();
+    alert.present();
   }
-
-	presentLoading() {
-  	let loader = this.loadingCtrl.create({
-    		content: "Calculando...",
-    		duration: 1000
-  	});
-  	loader.present();
-	}
-
 
 }

@@ -17,11 +17,12 @@ export class MyApp {
 
   pages: any[] = [
     { title: 'Início', component: 'WelcomePage', icon: 'home' },
-    { title: 'Inspeção', component: 'ProcessosPage', icon: 'clipboard' },
+    { title: 'Inspeção', component: 'InspecaoListPage', icon: 'clipboard' },
     { title: 'Proc. de Soldagem', component: 'ProcessosPage', icon: 'list-box' },
     { title: ' Eletrodo Revestido', component: 'EletrodoRevestidoPage', icon: 'arrow-dropright' },
     { title: ' MIG/MAG', component: 'MigMagPage', icon: 'arrow-dropright' },
-    { title: ' TIG', component: 'TigPage', icon: 'arrow-dropright' }
+    { title: ' TIG', component: 'TigPage', icon: 'arrow-dropright' },
+    { title: ' Sobre', component: 'AboutPage', icon: 'contacts' }
   ];
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
