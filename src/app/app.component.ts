@@ -18,6 +18,7 @@ export class MyApp {
   pages: any[] = [
     { title: 'Início', component: 'WelcomePage', icon: 'home' },
     { title: 'Inspeção', component: 'InspecaoListPage', icon: 'clipboard' },
+    { title: 'Equipe', component: 'SoldadorListPage', icon: 'body' },
     { title: 'Proc. de Soldagem', component: 'ProcessosPage', icon: 'list-box' },
     { title: ' Eletrodo Revestido', component: 'EletrodoRevestidoPage', icon: 'arrow-dropright' },
     { title: ' MIG/MAG', component: 'MigMagPage', icon: 'arrow-dropright' },

@@ -22,7 +22,10 @@ export class Inspecao{
 	desalinhamento: boolean = false;
 	faltaPenetracao: boolean = false;
 
-	constructor(){
-
-	}
+	constructor(fields: any) {
+   
+	    for (const f in fields) {
+	    	this[f] = fields[f];
+	    }
+	  }
 }

@@ -1,18 +1,11 @@
 import { Injectable } from '@angular/core';
 
-import { Item } from '../../models/item';
+import { Inspecao } from '../../models/inspecao';
 
 @Injectable()
 export class Items {
   
-  items: Item[] = [];
-
-  defaultItem: any = {
-    "name": "Nova Inspeção",
-    "profilePic": "assets/img/speakers/bear.jpg",
-    "about": "Registre uma nova inspeção e detalhe as ocorrências.",
-  };
-
+  items: Inspecao[] = [];
 
   constructor() {
     let items = [
@@ -124,7 +117,7 @@ export class Items {
     ];
 
     for (let item of items) {
-      this.items.push(new Item(item));
+      this.items.push(new Inspecao(item));
     }
   }
 
@@ -146,11 +139,11 @@ export class Items {
     });
   }
 
-  add(item: Item) {
+  add(item: Inspecao) {
     this.items.push(item);
   }
 
-  delete(item: Item) {
+  delete(item: Inspecao) {
     this.items.splice(this.items.indexOf(item), 1);
   }
 }

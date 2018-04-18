@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { Item } from '../../models/item'
 import { Inspecao } from '../../models/inspecao'
+
+import { SoldadorProvider } from '../../providers/soldador/soldador'
+
+import { Soldador, SoldadorElement } from '../../models/soldador'
 
 /**
  * Generated class for the InspecaoEditPage page.
@@ -11,6 +14,8 @@ import { Inspecao } from '../../models/inspecao'
  * Ionic pages and navigation.
  */
 
+declare var cordova: any;
+
 @IonicPage()
 @Component({
   selector: 'page-inspecao-edit',
@@ -18,12 +23,21 @@ import { Inspecao } from '../../models/inspecao'
 })
 export class InspecaoEditPage {
 
+	item: Inspecao;
+	soldadorList: SoldadorElement[]
 
-	item: Item;
-	itemInspecao: Inspecao;
+	constructor(
+		public navCtrl: NavController, 
+		public navParams: NavParams,
+		public soldadorProvider: SoldadorProvider
+		) {
 
-	constructor(public navCtrl: NavController, public navParams: NavParams) {
   		this.item = navParams.get('item');
+  		this.soldadorProvider.getAll().then((result)=>{
+  			this.soldadorList = result;
+
+  			console.log('soldadores::'+this.soldadorList);
+  		});
 
   		if(navParams.get('inspecao'))
   			this.item = navParams.get('inspecao');
@@ -49,5 +63,13 @@ export class InspecaoEditPage {
 	reprovar(){
 		this.item.aprovado = false;
 	}
+
+	public pathForImage(img) {
+      if (img === null) {
+        return '';
+      } else {
+        return cordova.file.dataDirectory + img;
+      }
+    }
 
 }

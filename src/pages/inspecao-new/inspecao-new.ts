@@ -7,16 +7,7 @@ import { File } from '@ionic-native/file';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 
-import { Item } from '../../models/item'
 import { Inspecao } from '../../models/inspecao'
-
-
-/**
- * Generated class for the InspecaoNewPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 declare var cordova: any;
  
@@ -70,7 +61,7 @@ export class InspecaoNewPage {
       let sourceType = type == "picture" ? this.camera.PictureSourceType.CAMERA : this.camera.PictureSourceType.PHOTOLIBRARY
       
       var options = {
-          quality: 100,
+          quality: 50,
           sourceType: sourceType,
           saveToPhotoAlbum: false,
           correctOrientation: true
@@ -91,7 +82,7 @@ export class InspecaoNewPage {
         }
 
       }, (err) => {
-        this.presentToast('Error while selecting image.');
+        this.presentToast('Problema ao selecionar imagem.');
       });
     }
 
@@ -132,9 +123,20 @@ export class InspecaoNewPage {
 
  	  avancar(){
 
-   	 	let novaInspecao = new Inspecao();
+   	 	let novaInspecao = new Inspecao({});
 
-   	 	novaInspecao.foto = this.currentPhoto;
+   	 	//novaInspecao.foto = this.currentPhoto;
+      novaInspecao.foto = this.currentPhoto != null ? this.currentPhoto : this.lastImage;
+
+
+      let toast = this.toastCtrl.create({
+        message: novaInspecao.foto,
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+
+
    	 	this.navCtrl.push('InspecaoEditPage',{
    	 		inspecao: novaInspecao
    	 	})
