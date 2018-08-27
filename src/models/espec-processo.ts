@@ -90,7 +90,7 @@ export class EspecProcesso{
 
 		this.calculado = true;
 	}
-
+	//calculo posicao plana angulo
 	buildPosicaoPlanaAngulo(){
 		let pernaSoldaArray = ['6.4',	'7,1 - 8.0', '9.5'];
 		let diametroEletrodoArray = ['4.8;5.6',	'6.4',	'8.0'];
