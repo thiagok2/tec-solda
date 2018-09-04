@@ -60,14 +60,49 @@ export class EspecProcesso{
 	}
 
 	buildPosicaoPlanaV(){
-		//let classificacaoEletrodoAWSArray = ['E6011','E6027','E6011', 'E6027','E6011', 'E6011', 'E6027'];
-		//let diametroEletrodoArray = [4, 4, 4, 4,4, 6.4, 6.4];
-		//let correnteEletricaIntervaloArray = ['135', '240', '135', '240', '135', '275', '400'];
-		//let velocidadeSoldagemIntervaloArray = ['15 - 20','30 - 35','15 - 20','30 - 35','15 - 20','20 - 25','25 - 30'];
+		let classificacaoEletrodoAWSArray = ['E6011','E6027','E6011', 'E6027','E6011', 'E6011', 'E6027'];
+		let diametroEletrodoArray = ['4', '4', '4', '4','4', '6.4', '6.4'];
+		let correnteEletricaIntervaloArray = ['135', '240', '135', '240', '135', '275', '400'];
+		let velocidadeSoldagemIntervaloArray = ['15 - 20','30 - 35','15 - 20','30 - 35','15 - 20','20 - 25','25 - 30'];
 		//EXPESSURA_POSICAO_PLANA_SOLDAGEM_TOPO_V
 		//this.numPasses = paramCalc.numPasse;
 
-		this.calculado = false;
+		let indice = undefined;
+		
+		if(this.paramCalc.espessura == 8 && this.paramCalc.numPasse == 1 ){
+			indice = 0;
+		} else if(this.paramCalc.espessura == 8 && this.paramCalc.numPasse == 2 ){
+			indice = 1;
+		} else if(this.paramCalc.espessura == 8 && this.paramCalc.numPasse == 3 ){
+			console.log('Selecione 1 ou 2 passes...');	
+			return;
+		} else if(this.paramCalc.espessura == 9.5 && (this.paramCalc.numPasse == 1 || this.paramCalc.numPasse == 2) ){
+			indice = 2;
+		} else if(this.paramCalc.espessura == 9.5 && this.paramCalc.numPasse == 3 ){
+			indice = 3;	
+		} else if(this.paramCalc.espessura == 12.7 && this.paramCalc.numPasse == 1 ){
+			indice = 4;
+		} else if(this.paramCalc.espessura == 12.7 && this.paramCalc.numPasse == 2 ){
+			indice = 5;
+		}else if(this.paramCalc.espessura == 12.7 && this.paramCalc.numPasse == 3 ){
+			indice = 6;
+		}else {
+			if(this.paramCalc.espessura == undefined){
+				console.log('Defina o parametro da especura');
+				return;
+			}
+			if(this.paramCalc.numPasse == undefined){
+				console.log('Defina o parametro de passes');
+				return;
+			}
+		}
+
+		this.classificacaoEletrotoAWS = classificacaoEletrodoAWSArray[indice];
+		this.diametroEletrodo = diametroEletrodoArray[indice];
+		this.correnteEletricaIntervalo = correnteEletricaIntervaloArray[indice];
+		this.velocidadeSoldagemIntervalo = velocidadeSoldagemIntervaloArray[indice];
+		
+		this.calculado = true;
 
 	}
 
