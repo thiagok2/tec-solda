@@ -62,7 +62,7 @@ export class ParamsCalc{
 			case 6:
 				return ParamsCalc.EXPESSURA_SOLDAGEM_TOPO_V_SOBRECABECA;
 			case 7:
-				return ParamsCalc.PASSE_SOLDAGEM_TOPO_V_SOBRECABECA_MAX;			
+				return ParamsCalc.EXPESSURA_SOLDAGEM_ANGULO_SOBRECABECA;			
 			default:
 				return [];
 
