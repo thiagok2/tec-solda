@@ -74,7 +74,6 @@ export class EspecProcesso{
 		} else if(this.paramCalc.espessura == 8 && this.paramCalc.numPasse == 2 ){
 			indice = 1;
 		} else if(this.paramCalc.espessura == 8 && this.paramCalc.numPasse == 3 ){
-			console.log('Selecione 1 ou 2 passes...');	
 			return;
 		} else if(this.paramCalc.espessura == 9.5 && (this.paramCalc.numPasse == 1 || this.paramCalc.numPasse == 2) ){
 			indice = 2;
@@ -88,11 +87,9 @@ export class EspecProcesso{
 			indice = 6;
 		}else {
 			if(this.paramCalc.espessura == undefined){
-				console.log('Defina o parametro da especura');
 				return;
 			}
 			if(this.paramCalc.numPasse == undefined){
-				console.log('Defina o parametro de passes');
 				return;
 			}
 		}
@@ -172,8 +169,9 @@ export class EspecProcesso{
 	}
 
 	buildSoldagemEmAngulo(){
+		//Soldagem em ângulo na posição sobrecabeça
 
-		//let pernaSoldaArray = ['4.0', '4.8', '6.4',	'8.0', '9.5' , '12.7', '15.9', '19.1'];
+		let pernaSoldaArray = ['4.0', '4.8', '6.4',	'8.0', '9.5' , '12.7', '15.9', '19.1'];
 		let diametroEletrodoArray = ['4.0', '4.8', '4.8', '4.8', '4.8', '4.8', '4.8', '4.8'];
 
 		let correnteEletricaIntervaloArray = ['130', '170', '170', '170', '170', '170', '170', '170'];
@@ -181,7 +179,11 @@ export class EspecProcesso{
 
 
 		let indice = ParamsCalc.EXPESSURA_SOLDAGEM_ANGULO_SOBRECABECA.indexOf(this.paramCalc.espessura);
+		
+		this.numPasses = 1;
+		this.classificacaoEletrotoAWS = 'E6010';
 
+		this.pernaSolda = pernaSoldaArray[indice];
 		this.diametroEletrodo = diametroEletrodoArray[indice];
 		this.correnteEletricaIntervalo = correnteEletricaIntervaloArray[indice];
 		this.velocidadeSoldagemIntervalo = velocidadeSoldagemIntervaloArray[indice];
