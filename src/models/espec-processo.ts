@@ -60,38 +60,31 @@ export class EspecProcesso {
 	}
 
 	buildPosicaoPlanaV() {
+		//EXPESSURA_POSICAO_PLANA_SOLDAGEM_TOPO_V
 		let classificacaoEletrodoAWSArray = ['E6011', 'E6027', 'E6011', 'E6027', 'E6011', 'E6011', 'E6027'];
 		let diametroEletrodoArray = ['4', '4', '4', '4', '4', '6.4', '6.4'];
 		let correnteEletricaIntervaloArray = ['135', '240', '135', '240', '135', '275', '400'];
 		let velocidadeSoldagemIntervaloArray = ['15 - 20', '30 - 35', '15 - 20', '30 - 35', '15 - 20', '20 - 25', '25 - 30'];
-		//EXPESSURA_POSICAO_PLANA_SOLDAGEM_TOPO_V
-		//this.numPasses = paramCalc.numPasse;
-
+		
+		this.numPasses = this.paramCalc.numPasse;
 		let indice = undefined;
 
-		if (this.paramCalc.espessura == 8 && this.paramCalc.numPasse == 1) {
+		if (this.paramCalc.espessura == 8 && this.numPasses == 1) {
 			indice = 0;
-		} else if (this.paramCalc.espessura == 8 && this.paramCalc.numPasse == 2) {
+		} else if (this.paramCalc.espessura == 8 && this.numPasses == 2) {
 			indice = 1;
-		} else if (this.paramCalc.espessura == 8 && this.paramCalc.numPasse == 3) {
-			return;
-		} else if (this.paramCalc.espessura == 9.5 && (this.paramCalc.numPasse == 1 || this.paramCalc.numPasse == 2)) {
+		} else if (this.paramCalc.espessura == 9.5 && (this.numPasses == 1 || this.numPasses == 2)) {
 			indice = 2;
-		} else if (this.paramCalc.espessura == 9.5 && this.paramCalc.numPasse == 3) {
+		} else if (this.paramCalc.espessura == 9.5 && this.numPasses == 3) {
 			indice = 3;
-		} else if (this.paramCalc.espessura == 12.7 && this.paramCalc.numPasse == 1) {
+		} else if (this.paramCalc.espessura == 12.7 && this.numPasses == 1) {
 			indice = 4;
-		} else if (this.paramCalc.espessura == 12.7 && this.paramCalc.numPasse == 2) {
+		} else if (this.paramCalc.espessura == 12.7 && this.numPasses == 2) {
 			indice = 5;
-		} else if (this.paramCalc.espessura == 12.7 && this.paramCalc.numPasse == 3) {
+		} else if (this.paramCalc.espessura == 12.7 && this.numPasses == 3) {
 			indice = 6;
 		} else {
-			if (this.paramCalc.espessura == undefined) {
-				return;
-			}
-			if (this.paramCalc.numPasse == undefined) {
-				return;
-			}
+			return;
 		}
 
 		this.classificacaoEletrotoAWS = classificacaoEletrodoAWSArray[indice];
@@ -100,7 +93,6 @@ export class EspecProcesso {
 		this.velocidadeSoldagemIntervalo = velocidadeSoldagemIntervaloArray[indice];
 
 		this.calculado = true;
-
 	}
 
 	buildPosicaoPlanaHorizontal() {
@@ -177,7 +169,7 @@ export class EspecProcesso {
 			indice = 0;
 		} else if (this.paramCalc.espessura == 8 && this.numPasses == 2) {
 			indice = 1;
-		} else if (this.paramCalc.espessura == 9.5 && this.numPasses >= 2 && this.numPasses <= 3) {
+		} else if (this.paramCalc.espessura == 9.5 && (this.numPasses == 2 || this.numPasses == 3)) {
 			indice = 3;
 		} else if (this.paramCalc.espessura == 12.7 && this.numPasses >= 2 && this.numPasses <= 5) {
 			indice = 5;
