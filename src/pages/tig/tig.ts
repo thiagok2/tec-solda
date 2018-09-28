@@ -23,7 +23,7 @@ export class TigPage {
   }
 
   avancar(){
-  	this.navCtrl.push('ModalEmBrevePage');
+  	this.navCtrl.push('PosicoesMateriaisTigPage');
   }
 
   voltar(){
