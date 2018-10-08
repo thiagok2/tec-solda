@@ -17,21 +17,25 @@ export class PosicoesMateriaisTigPage {
 
   ionViewDidLoad() {
     this.processosTig = [{
+      id : 'acoCarbono',
       titulo: 'Aço Carbono',
       subtitulo: 'Soldagem de aço carbono',
       imagem: 'assets/img/posicoes/posicao-plana_reta.png',
       //parametros: {}
     }, {
+      id : 'acoInoxidavel',
       titulo: 'Aço Inoxidável',
       subtitulo: 'Soldagem de aço inoxidável⁽²⁾',
       imagem: 'assets/img/posicoes/posicao-plana_reta.png',
       //parametros: {}
     }, {
+      id : 'aluminioCorrenteAlternada',
       titulo: 'Alumínio : Corrente Alternada⁽¹⁰⁾',
       subtitulo: 'Soldagem de alumínio e sua ligas em corrente alternada⁽¹⁰⁾',
       imagem: 'assets/img/posicoes/posicao-plana_reta.png',
       //parametros: {}
     }, {
+      id : 'aluminioCorrenteContinua',
       titulo: 'Alumínio : Corrente Contínua⁽¹⁰⁾',
       subtitulo: 'Soldagem de alumínio e suas ligas e corrente continua polaridade direta na posição plana ⁽¹⁰⁾',
       imagem: 'assets/img/posicoes/posicao-plana_reta.png',
@@ -40,6 +44,10 @@ export class PosicoesMateriaisTigPage {
   }
 
   selecionadoProcessoCalc(processo) {
-    this.navCtrl.push(ParamCalcTigPage.name, processo);
+    this.navCtrl.push(ParamCalcTigPage.name,{
+      id : processo.id,
+      titulo : processo.titulo,
+      subtitulo : processo.subtitulo
+    });
   }
 }
