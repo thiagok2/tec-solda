@@ -1,8 +1,8 @@
 export interface ProcessosTig {
-
+    id : string,
     titulo: string,
     subtitulo: string,
-    imagem: string,
+    imagem?: string,
 
     parametros?: {
         espessuraAproximada: string,
