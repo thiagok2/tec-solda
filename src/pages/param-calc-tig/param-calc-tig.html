@@ -4,36 +4,94 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="form-calc">
 
   <ion-item>
     <ion-label>
-      <h2>{{paramProcesso.titulo}}</h2>
-      <p>{{paramProcesso.subtitulo}}</p>
+      <h2>{{paramCalcular.titulo}}</h2>
+      <p>{{paramCalcular.subtitulo}}</p>
     </ion-label>
-
   </ion-item>
 
-  
   <ion-item padding>
-		<ion-label>Espessura Aproximada</ion-label>
-	    <ion-select ><!--[(ngModel)]="paramProcesso.parametros.espessuraAproximada"-->
-	    	<ion-option *ngFor="let especura of espessuras">{{especura}}</ion-option>
-	    </ion-select>
-	</ion-item>
-<!--
-	<ion-item padding *ngIf="hasSelectNumPasse">
-		<ion-label>Num. Passes</ion-label>
-	    <ion-select [(ngModel)]="paramsCalc.numPasse">
-	    	<ion-option *ngFor="let passe of passesArray" [value]="passe">{{passe}}</ion-option>
-	    </ion-select>
-	</ion-item>
-	
-	
-	<button ion-button full icon-right (click)="calcular()">
-		Calcular
-		 <ion-icon name="calculator"></ion-icon>
-	</button>
--->
+    <ion-label>Espessura Aproximada</ion-label>
+    <ion-select [(ngModel)]="paramCalcular.espessuraAproximada" (ionChange)="eventSelectEspessura($event)">
+      <ion-option *ngFor="let especura of espessuras" >{{especura}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item padding *ngIf="juntasAcoInoxidavel">
+    <ion-label>Tipo De Junta</ion-label>
+    <ion-select [(ngModel)]="paramCalcular.tipoJunta">
+      <ion-option *ngFor="let junta of juntasAcoInoxidavel">{{junta}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item padding *ngIf="posicoesSoldagem">
+    <ion-label>Posição De Soldagem</ion-label>
+    <ion-select [(ngModel)]="paramCalcular.posicaoSoldagem">
+      <ion-option *ngFor="let posicao of posicoesSoldagem">{{posicao}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item padding *ngIf="juntasParaAluminio">
+    <ion-label>Tipo De Junta</ion-label>
+    <ion-select [(ngModel)]="paramCalcular.tipoJunta">
+      <ion-option *ngFor="let junta of juntasParaAluminio">{{junta}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-fab bottom right>
+    <button ion-fab left>
+      <ion-icon name="calculator"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-list *ngIf="this.showResultado" padding>
+
+    <ion-item *ngIf="calcResultado.tigResultado.diametroEletrodo">
+      <ion-label>Diâmetro Do Eletrôdo</ion-label>
+      <ion-input type="text" readonly="true" [(ngModel)]="calcResultado.tigResultado.diametroEletrodo" [value]="diametroEletrodo">{{diametroEletrodo}}</ion-input>
+    </ion-item>
+    <ion-item *ngIf="calcResultado.tigResultado.diametroAdicao">
+      <ion-label>Diâmetro De Adição</ion-label>
+      <ion-input type="text" readonly="true" [(ngModel)]="calcResultado.tigResultado.diametroAdicao" [value]="diametroAdicao">{{diametroAdicao}}</ion-input>
+    </ion-item>
+    
+    <ion-item *ngIf="calcResultado.tigResultado.velocidadeSoldagem">
+      <ion-label>Velocidade de Soldagem</ion-label>
+      <ion-input type="text" readonly="true" [(ngModel)]="calcResultado.tigResultado.velocidadeSoldagem" [value]="velocidadeSoldagem">{{velocidadeSoldagem}}</ion-input>
+    </ion-item>
+    <ion-item *ngIf="calcResultado.tigResultado.correnteSoldaPasseRaiz">
+      <ion-label>corrente de soldagem (A)<br> Passe de raiz</ion-label>
+      <ion-input type="text" readonly="true" [(ngModel)]="calcResultado.tigResultado.correnteSoldaPasseRaiz" [value]="correnteSoldaPasseRaiz">{{correnteSoldaPasseRaiz}}</ion-input>
+    </ion-item>
+    <ion-item *ngIf="calcResultado.tigResultado.correnteSoldaOutrosPasses">
+      <ion-label>corrente de soldagem (A) <br> Outros passes</ion-label>
+      <ion-input type="text" readonly="true" [(ngModel)]="calcResultado.tigResultado.correnteSoldaOutrosPasses" [value]="correnteSoldaOutrosPasses">{{correnteSoldaOutrosPasses}}</ion-input>
+    </ion-item>
+    <ion-item *ngIf="calcResultado.tigResultado.corrente">
+      <ion-label>Corrente (A)</ion-label>
+      <ion-input type="text" readonly="true" [(ngModel)]="calcResultado.tigResultado.corrente" [value]="corrente">{{corrente}}</ion-input>
+    </ion-item>
+    <ion-item *ngIf="calcResultado.tigResultado.tensao">
+      <ion-label>TENSÃO (V)</ion-label>
+      <ion-input type="text" readonly="true" [(ngModel)]="calcResultado.tigResultado.tensao" [value]="tensao">{{tensao}}</ion-input>
+    </ion-item>
+    <ion-item *ngIf="calcResultado.tigResultado.vazaoArgonio">
+      <ion-label>VAZÃO DE ARGÔNIO (l/mm)</ion-label>
+      <ion-input type="text" readonly="true" [(ngModel)]="calcResultado.tigResultado.vazaoArgonio" [value]="vazaoArgonio">{{vazaoArgonio}}</ion-input>
+    </ion-item>
+    <ion-item *ngIf="calcResultado.tigResultado.vazaoHelio">
+      <ion-label>VAZÃO DE HELIO (l/mm)</ion-label>
+      <ion-input type="text" readonly="true" [(ngModel)]="calcResultado.tigResultado.vazaoHelio" [value]="vazaoHelio">{{vazaoHelio}}</ion-input>
+    </ion-item>
+    <ion-item *ngIf="calcResultado.tigResultado.numPasses">
+      <ion-label>NÚMERO DE PASSES</ion-label>
+      <ion-input type="text" readonly="true" [(ngModel)]="calcResultado.tigResultado.numPasses" [value]="numPasses">{{numPasses}}</ion-input>
+    </ion-item>
+    <ion-item *ngIf="calcResultado.tigResultado.tipoJunta">
+      <ion-label>Tipo De Junta</ion-label>
+      <ion-input type="text" readonly="true" [(ngModel)]="calcResultado.tigResultado.tipoJunta" [value]="tipoJunta">{{tipoJunta}}</ion-input>
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>
