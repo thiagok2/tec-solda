@@ -6,51 +6,57 @@ export class TigProcessoProvider {
 
     public tigResultado: TigResultado;
     public tigProcesso: TigProcesso;
-    calculado: boolean = false;
 
     constructor(processoTig: TigProcesso) {
         this.tigProcesso = processoTig;
-        this.build();        
+        this.build();
     }
 
     build() {
         switch (this.tigProcesso.id) {
             case 'acoCarbono':
-                this.acoCarbono(); break;
+                this.acoCarbono();
+                break; 
             case 'acoInoxidavel':
-                this.acoInoxidavel(); break;
+                this.acoInoxidavel();
+                break; 
             case 'aluminioCorrenteAlternada':
-                this.aluminioCorrenteAlternada();break;
+                this.aluminioCorrenteAlternada();
+                break;  
             case 'aluminioCorrenteContinua':
-                this.aluminioCorrenteContinua();break;
+                this.aluminioCorrenteContinua();
+                break;  
         }
     }
-    
+
     acoCarbono() {
         let resultadoTig = new TigResultadoValoresProvider();
-        this.tigResultado = resultadoTig.getValorAcoCarbono(this.tigProcesso.espessuraAproximada);        
-        this.calculado = true;        
+        this.tigResultado = resultadoTig.getValorAcoCarbono(this.tigProcesso.espessuraAproximada);
     }
 
     acoInoxidavel() {
         let resultadoTig;
         this.tigResultado = resultadoTig;
-        this.calculado = false; 
+
 
     }
 
     aluminioCorrenteAlternada() {
         let resultadoTig;
         this.tigResultado = resultadoTig;
-        this.calculado = false; 
+
 
     }
 
     aluminioCorrenteContinua() {
         let resultadoTig;
         this.tigResultado = resultadoTig;
-        this.calculado = false; 
 
+
+    }
+
+    getCalculado() {
+        return this.tigResultado ? true : false;
     }
 
 }
