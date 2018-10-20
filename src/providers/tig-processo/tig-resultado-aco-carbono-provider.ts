@@ -1,6 +1,6 @@
 import { TigResultado } from "../../models/TigResultado";
 
-export class TigResultadoValoresProvider {
+export class TigResultadoAcoCarbonoProvider {
 
     private _acoCarbonoValores = new Map();
     private _tigResutados: TigResultado;
