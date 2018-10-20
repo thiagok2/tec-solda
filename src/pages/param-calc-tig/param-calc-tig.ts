@@ -13,7 +13,7 @@ export class ParamCalcTigPage {
 
   public paramCalcular: TigProcesso;
   public calcResultado: TigProcessoProvider;
-  public showResultado: Boolean = false;
+  public showResultado: Boolean;
   public espessuras;
   public juntasAcoInoxidavel;
   public juntasParaAluminio;
@@ -54,9 +54,9 @@ export class ParamCalcTigPage {
   }
 
 
-  calcular() {
-    this.showResultado = true;
+  calcular() {  
     this.calcResultado = new TigProcessoProvider(this.paramCalcular);
+    this.showResultado = this.calcResultado.getCalculado();
   }
 
 
