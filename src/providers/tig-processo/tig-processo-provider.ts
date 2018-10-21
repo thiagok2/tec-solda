@@ -1,6 +1,7 @@
 import { TigProcesso } from "../../models/TigProcesso";
 import { TigResultado } from "../../models/TigResultado";
-import { TigResultadoValoresProvider } from "./tig-valores-provider";
+import { TigResultadoAcoCarbonoProvider } from "./tig-resultado-aco-carbono-provider";
+import { TigResultadoAcoInoxidavelProvider } from "./tig-resultado-aco-inoxidavel-provider";
 
 export class TigProcessoProvider {
 
@@ -16,27 +17,29 @@ export class TigProcessoProvider {
         switch (this.tigProcesso.id) {
             case 'acoCarbono':
                 this.acoCarbono();
-                break; 
+                break;
             case 'acoInoxidavel':
                 this.acoInoxidavel();
-                break; 
+                break;
             case 'aluminioCorrenteAlternada':
                 this.aluminioCorrenteAlternada();
-                break;  
+                break;
             case 'aluminioCorrenteContinua':
                 this.aluminioCorrenteContinua();
-                break;  
+                break;
         }
     }
 
     acoCarbono() {
-        let resultadoTig = new TigResultadoValoresProvider();
+        let resultadoTig = new TigResultadoAcoCarbonoProvider();
         this.tigResultado = resultadoTig.getValorAcoCarbono(this.tigProcesso.espessuraAproximada);
     }
 
     acoInoxidavel() {
-        let resultadoTig;
-        this.tigResultado = resultadoTig;
+        let resultadoTig = new TigResultadoAcoInoxidavelProvider();
+        let especura = this.tigProcesso.espessuraAproximada;
+        let tipoJunta = this.tigProcesso.tipoJunta;
+        this.tigResultado = resultadoTig.getValorAcoInoxidavel(especura, tipoJunta);
 
 
     }
