@@ -22,27 +22,22 @@
 
   <ion-item padding *ngIf="juntasAcoInoxidavel">
     <ion-label>Tipo De Junta</ion-label>
-    <ion-select [(ngModel)]="paramCalcular.tipoJunta">
+    <ion-select [(ngModel)]="paramCalcular.tipoJunta" (ionChange)="eventSelectEspessura($event)">
       <ion-option *ngFor="let junta of juntasAcoInoxidavel">{{junta}}</ion-option>
     </ion-select>
   </ion-item>
   <ion-item padding *ngIf="posicoesSoldagem">
     <ion-label>Posição De Soldagem</ion-label>
-    <ion-select [(ngModel)]="paramCalcular.posicaoSoldagem">
+    <ion-select [(ngModel)]="paramCalcular.posicaoSoldagem" (ionChange)="eventSelectEspessura($event)">
       <ion-option *ngFor="let posicao of posicoesSoldagem">{{posicao}}</ion-option>
     </ion-select>
   </ion-item>
   <ion-item padding *ngIf="juntasParaAluminio">
     <ion-label>Tipo De Junta</ion-label>
-    <ion-select [(ngModel)]="paramCalcular.tipoJunta">
+    <ion-select [(ngModel)]="paramCalcular.tipoJunta" (ionChange)="eventSelectEspessura($event)">
       <ion-option *ngFor="let junta of juntasParaAluminio">{{junta}}</ion-option>
     </ion-select>
   </ion-item>
-  <ion-fab bottom right>
-    <button ion-fab left>
-      <ion-icon name="calculator"></ion-icon>
-    </button>
-  </ion-fab>
 
   <ion-list *ngIf="this.showResultado" padding>
 
