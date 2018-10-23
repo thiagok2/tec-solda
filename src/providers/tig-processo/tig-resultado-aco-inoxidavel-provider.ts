@@ -11,8 +11,6 @@ export class TigResultadoAcoInoxidavelProvider {
 
     getValorAcoInoxidavel(especura, tipoJunta) {
         let chave = especura + '&' + tipoJunta;
-        console.log(chave);
-
         this._tigResutados = this._acoInoxidavelValores.get(chave);
         return this._tigResutados;
     }
