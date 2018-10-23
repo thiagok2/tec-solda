@@ -2,6 +2,8 @@ import { TigProcesso } from "../../models/TigProcesso";
 import { TigResultado } from "../../models/TigResultado";
 import { TigResultadoAcoCarbonoProvider } from "./tig-resultado-aco-carbono-provider";
 import { TigResultadoAcoInoxidavelProvider } from "./tig-resultado-aco-inoxidavel-provider";
+import { TigResultadoAluminioAlternada } from "./tig-resultado-aluminio-alternada";
+import { TigResultadoAluminioContinuaProvider } from "./tig-resultado-aluminio-continua";
 
 export class TigProcessoProvider {
 
@@ -30,6 +32,10 @@ export class TigProcessoProvider {
         }
     }
 
+    getCalculado() {
+        return this.tigResultado ? true : false;
+    }
+
     acoCarbono() {
         let resultadoTig = new TigResultadoAcoCarbonoProvider();
         this.tigResultado = resultadoTig.getValorAcoCarbono(this.tigProcesso.espessuraAproximada);
@@ -40,27 +46,22 @@ export class TigProcessoProvider {
         let especura = this.tigProcesso.espessuraAproximada;
         let tipoJunta = this.tigProcesso.tipoJunta;
         this.tigResultado = resultadoTig.getValorAcoInoxidavel(especura, tipoJunta);
-
-
     }
 
     aluminioCorrenteAlternada() {
-        let resultadoTig;
-        this.tigResultado = resultadoTig;
-
-
+        let resultadoTig = new TigResultadoAluminioAlternada();
+        let posicao = this.tigProcesso.posicaoSoldagem;
+        let especura = this.tigProcesso.espessuraAproximada;
+        this.tigResultado = resultadoTig.getValorAluminioAlternada(especura, posicao);
     }
 
     aluminioCorrenteContinua() {
-        let resultadoTig;
-        this.tigResultado = resultadoTig;
-
-
+        let resultadoTig = new TigResultadoAluminioContinuaProvider();
+        let especura = this.tigProcesso.espessuraAproximada;
+        let tipoJunta = this.tigProcesso.tipoJunta;
+        this.tigResultado = resultadoTig.getValorAluminioContinua(especura, tipoJunta);
     }
 
-    getCalculado() {
-        return this.tigResultado ? true : false;
-    }
-
+    
 }
 
