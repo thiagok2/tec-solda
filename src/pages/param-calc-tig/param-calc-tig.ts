@@ -15,7 +15,6 @@ export class ParamCalcTigPage {
   public calcResultado: TigProcessoProvider;
   public showResultado: Boolean;
   public espessuras;
-  public juntasAcoInoxidavel;
   public juntasParaAluminio;
   public posicoesSoldagem;
 
@@ -36,9 +35,6 @@ export class ParamCalcTigPage {
 
   exibirParametrosParaSelecão() {
     let opcoesSelecaoTig = new TigOpcoesProvider();
-    if (this.paramCalcular.id == 'acoInoxidavel') {
-      this.juntasAcoInoxidavel = opcoesSelecaoTig.TIPO_JUNTA_ACO_INOXIDAVEL;
-    }
     if (this.paramCalcular.id == 'aluminioCorrenteAlternada') {
       this.posicoesSoldagem = opcoesSelecaoTig.POSICAO_SOLDAGEM;
     }

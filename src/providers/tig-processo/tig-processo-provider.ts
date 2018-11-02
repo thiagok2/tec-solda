@@ -44,8 +44,7 @@ export class TigProcessoProvider {
     acoInoxidavel() {
         let resultadoTig = new TigResultadoAcoInoxidavelProvider();
         let especura = this.tigProcesso.espessuraAproximada;
-        let tipoJunta = this.tigProcesso.tipoJunta;
-        this.tigResultado = resultadoTig.getValorAcoInoxidavel(especura, tipoJunta);
+        this.tigResultado = resultadoTig.getValorAcoInoxidavel(especura);
     }
 
     aluminioCorrenteAlternada() {
