@@ -34,7 +34,7 @@ export class TigResultadoAluminioContinuaProvider {
             corrente: '65 - 70',
             tensao: '15 - 20',
             diametroEletrodo: '2.4',
-            //diametroAdicao: 'Sem Adicao',
+            diametroAdicao: 'Sem Adicao',
             vazaoHelio: '10 - 25',
         });
         this._aluminioContinuaValores.set('1.0&Solda sem chanfro', {
@@ -56,13 +56,6 @@ export class TigResultadoAluminioContinuaProvider {
             tensao: '15 - 20',
             diametroEletrodo: '1.2 - 1.6',
             diametroAdicao: '1.2 - 1.6',
-            vazaoHelio: '10 - 25',
-        });
-        this._aluminioContinuaValores.set('1.75&Solda sem chanfro', {
-            corrente: '55 - 145',
-            tensao: '15 - 20',
-            diametroEletrodo: '1.6',
-            diametroAdicao: '1.6',
             vazaoHelio: '10 - 25',
         });
         this._aluminioContinuaValores.set('1.75&Solda sem chanfro', {
@@ -100,7 +93,6 @@ export class TigResultadoAluminioContinuaProvider {
             diametroAdicao: '3.2 - 4.8',
             vazaoHelio: '12 - 30',
         });
-
         this._aluminioContinuaValores.set('12.7&V-60° 3,0 mm solda sem chanfro', {
             corrente: '300 - 450',
             tensao: '15 - 20',
@@ -123,11 +115,7 @@ export class TigResultadoAluminioContinuaProvider {
             vazaoHelio: '12 - 30',
         });
 
-
-
-
     }
-
 
 
 }
