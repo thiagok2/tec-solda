@@ -15,20 +15,20 @@
 
   <ion-item padding>
     <ion-label>Espessura Aproximada</ion-label>
-    <ion-select [(ngModel)]="paramCalcular.espessuraAproximada" (ionChange)="eventSelectEspessura($event)">
+    <ion-select [(ngModel)]="paramCalcular.espessuraAproximada" (ionChange)="eventSelects($event)">
       <ion-option *ngFor="let especura of espessuras" >{{especura}}</ion-option>
     </ion-select>
   </ion-item>
 
   <ion-item padding *ngIf="posicoesSoldagem">
     <ion-label>Posição De Soldagem</ion-label>
-    <ion-select [(ngModel)]="paramCalcular.posicaoSoldagem" (ionChange)="eventSelectEspessura($event)">
+    <ion-select [(ngModel)]="paramCalcular.posicaoSoldagem" (ionChange)="eventSelects($event)">
       <ion-option *ngFor="let posicao of posicoesSoldagem">{{posicao}}</ion-option>
     </ion-select>
   </ion-item>
   <ion-item padding *ngIf="juntasParaAluminio">
     <ion-label>Tipo De Junta</ion-label>
-    <ion-select [(ngModel)]="paramCalcular.tipoJunta" (ionChange)="eventSelectEspessura($event)">
+    <ion-select [(ngModel)]="paramCalcular.tipoJunta" (ionChange)="eventSelects($event)">
       <ion-option *ngFor="let junta of juntasParaAluminio">{{junta}}</ion-option>
     </ion-select>
   </ion-item>

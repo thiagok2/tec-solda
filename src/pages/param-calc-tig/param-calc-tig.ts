@@ -48,7 +48,7 @@ export class ParamCalcTigPage {
     this.exibirParametrosParaSelecão();
   }
 
-  eventSelectEspessura(event: any) {
+  eventSelects(event: any) {
     this.calcular();
   }
 
@@ -79,7 +79,7 @@ export class ParamCalcTigPage {
   mensagemIndisponivel() {
     let alert = this.alertCtrl.create({
       title: 'Cálculo Indisponível',
-      subTitle: 'Não foi possivel realizar o cálculo com os parâmetros selecionados.',
+      subTitle: 'Cálculos com os parâmetros selecionados, não existe. Selecione os parâmetros corretamente.',
       buttons: ['OK']
     });
     alert.present();
