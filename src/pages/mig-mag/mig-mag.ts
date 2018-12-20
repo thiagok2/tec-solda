@@ -18,16 +18,8 @@ export class MigMagPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MigMagPage');
-  }
-
   avancar(){
   	this.navCtrl.push('ModalEmBrevePage');
-  }
-
-  voltar(){
-    this.navCtrl.push('ProcessosPage');
   }
 
 }
