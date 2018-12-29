@@ -5,7 +5,7 @@ import { Inspecao } from '../../models/inspecao'
 
 import { SoldadorProvider } from '../../providers/soldador/soldador'
 
-import { Soldador, SoldadorElement } from '../../models/soldador'
+import { SoldadorElement } from '../../models/soldador'
 
 /**
  * Generated class for the InspecaoEditPage page.
@@ -25,28 +25,24 @@ export class InspecaoEditPage {
 
 	item: Inspecao;
 	soldadorList: SoldadorElement[]
+	showNewPhoto: boolean;
 
 	constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
 		public soldadorProvider: SoldadorProvider
 		) {
-
-  		this.item = navParams.get('item');
-  		this.soldadorProvider.getAll().then((result)=>{
+  		this.item = navParams.get('item')?navParams.get('item'):navParams.get('inspecao');
+		this.showNewPhoto = navParams.get('inspecao')? true : false;
+		
+		this.soldadorProvider.getAll().then((result)=>{
   			this.soldadorList = result;
-
-  			console.log('soldadores::'+this.soldadorList);
   		});
-
-  		if(navParams.get('inspecao'))
-  			this.item = navParams.get('inspecao');
-
 
 	}
 
 	inspecao() {
-    	this.navCtrl.push('InspecaoListPage');
+    	this.navCtrl.pop();
 	}
 
 	salvar() {

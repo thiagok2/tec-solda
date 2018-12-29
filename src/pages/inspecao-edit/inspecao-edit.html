@@ -29,12 +29,10 @@
 <ion-content padding>
     <button ion-button block (click)="inspecao()">Voltar</button>
 
+	<img *ngIf="!showNewPhoto" [src]="item.foto">
+	
+    <img *ngIf="showNewPhoto" src="{{pathForImage(item.foto)}}" style="width: 100%" [hidden]="lastImage === null">
 
-    <img [src]="item.foto">
-    <!--
-    <img src="{{pathForImage(item.foto)}}" style="width: 100%" [hidden]="lastImage === null">
-    -->
-    
 	<ion-item>
 		<ion-label>Data Inspeção</ion-label>
 		<ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="item.dataInspecao"></ion-datetime>
@@ -43,9 +41,7 @@
 	<ion-item>
 		<ion-label>Soldador</ion-label>
 		<ion-select [(ngModel)]="item.soldador" cancelText="Cancelar" okText="OK">
-	    	<ion-option *ngFor="let soldadorElement of soldadorList" 
-            [value]="soldadorElement.soldador.nome" 
-                value="soldadorElement.soldador.nome">
+	    	<ion-option *ngFor="let soldadorElement of soldadorList">
                 {{soldadorElement.soldador.nome}}
             </ion-option>
         </ion-select>
@@ -54,8 +50,9 @@
 	<ion-item>
 		<ion-label>Inspetor</ion-label>
 		<ion-select [(ngModel)]="item.inspetor" cancelText="Cancelar" okText="OK">
-	    	<ion-option value="Eng. Eduardo M.">Eduardo M.</ion-option>
-	    	<ion-option value="Cleunis Brandão">Cleunis B.</ion-option>
+	    	<ion-option *ngFor="let inspetorElement of soldadorList">
+				{{inspetorElement.soldador.nome}}
+			</ion-option>
 	    </ion-select>
 	</ion-item>
 
