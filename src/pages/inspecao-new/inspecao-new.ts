@@ -63,7 +63,7 @@ export class InspecaoNewPage {
       var options = {
           quality: 50,
           sourceType: sourceType,
-          saveToPhotoAlbum: false,
+          saveToPhotoAlbum: true,
           correctOrientation: true
       };
 
