@@ -1,8 +1,11 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Soldadores</ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Soldadores</ion-title>
+	</ion-navbar>
 
 </ion-header>
 
@@ -10,65 +13,65 @@
 <ion-content padding>
 	<ion-list>
 		<ion-list-header>
-		  
+
 		</ion-list-header>
 
 		<ion-card *ngFor="let item of soldadorList" [ngClass]="{'item-inactive': !item.soldador.ativo }">
 			<ion-card-header>
 				<ion-item>
 					<ion-avatar item-start>
-				      <ion-icon name="contact"></ion-icon>
-				    </ion-avatar>
+						<ion-icon name="contact"></ion-icon>
+					</ion-avatar>
 
-	        		<h2>{{ item.soldador.nome }}</h2>
-	        		<p>{{ item.soldador.dataCadastro }}</p>
-	        	</ion-item>
-      		</ion-card-header>
+					<h2>{{ item.soldador.nome }}</h2>
+					<p>{{ item.soldador.dataCadastro }}</p>
+				</ion-item>
+			</ion-card-header>
 
-      		<ion-card-content>
-      			<ion-list>
+			<ion-card-content>
+				<ion-list>
 					<ion-item>
-				    	Experiência {{item.soldador.experiencia}}
-				    	<ion-icon name="time" item-end></ion-icon>
-				  	</ion-item>
-				  	<ion-item>
-				    	{{item.soldador.telefone}}
-				    	<ion-icon name="call" item-end></ion-icon>
-				  	</ion-item>
+						Experiência {{item.soldador.experiencia}}
+						<ion-icon name="time" item-end></ion-icon>
+					</ion-item>
+					<ion-item>
+						{{item.soldador.telefone}}
+						<ion-icon name="call" item-end></ion-icon>
+					</ion-item>
 
-				  	<ion-item *ngIf="item.soldador.inspetor">
-				    	Inspetor
-				    	<ion-icon name="checkbox" item-end></ion-icon>
-				  	</ion-item>
+					<ion-item *ngIf="item.soldador.inspetor">
+						Inspetor
+						<ion-icon name="checkbox" item-end></ion-icon>
+					</ion-item>
 				</ion-list>
-      		</ion-card-content>
+			</ion-card-content>
 
-      		<ion-row text-center>
-		        <ion-col>
-		        	<button ion-button icon-left clear small (click)="editarSoldador(item);">
-		            	<ion-icon name="create"></ion-icon>
-		            	<div>Editar</div>
-		          	</button>
-		        </ion-col>
-		        <ion-col>
-		          	<button ion-button icon-left clear small (click)="removerSoldador(item);">
-		            	<ion-icon name="trash"></ion-icon>
-		            	<div>Excluir</div>
-		         	</button>
-		        </ion-col>
-		        <ion-col>
-		        	<a href="tel:{{ item.soldador.telefone }}" ion-button icon-left clear small>
-		            	<ion-icon name="call"></ion-icon>
-		            	<div>Ligar</div>
-		          	</a>
-		        </ion-col>
-	      	</ion-row>
+			<ion-row text-center>
+				<ion-col>
+					<button ion-button icon-left clear small (click)="editarSoldador(item);">
+						<ion-icon name="create"></ion-icon>
+						<div>Editar</div>
+					</button>
+				</ion-col>
+				<ion-col>
+					<button ion-button icon-left clear small (click)="removerSoldador(item);">
+						<ion-icon name="trash"></ion-icon>
+						<div>Excluir</div>
+					</button>
+				</ion-col>
+				<ion-col>
+					<a href="tel:{{ item.soldador.telefone }}" ion-button icon-left clear small>
+						<ion-icon name="call"></ion-icon>
+						<div>Ligar</div>
+					</a>
+				</ion-col>
+			</ion-row>
 		</ion-card>
 	</ion-list>
 	<ion-fab right bottom>
-    	<button ion-fab color="primary" (click)="addSoldador()">
-    		<ion-icon name="add"></ion-icon>
-    	</button>
-  	</ion-fab>
+		<button ion-fab color="primary" (click)="addSoldador()">
+			<ion-icon name="add"></ion-icon>
+		</button>
+	</ion-fab>
 
 </ion-content>
