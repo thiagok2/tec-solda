@@ -24,37 +24,41 @@ declare var cordova: any;
 export class InspecaoEditPage {
 
 	item: Inspecao;
-	soldadorList: SoldadorElement[]
+	soldadorList: SoldadorElement[];
 	showNewPhoto: boolean;
-
+	inspetorList: SoldadorElement[];
+	
 	constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
-		public soldadorProvider: SoldadorProvider
-		) {
+		public soldadorProvider: SoldadorProvider) {
+
   		this.item = navParams.get('item')?navParams.get('item'):navParams.get('inspecao');
 		this.showNewPhoto = navParams.get('inspecao')? true : false;
 		
-		this.soldadorProvider.getAll().then((result)=>{
-  			this.soldadorList = result;
-  		});
+	}
 
+	ionViewDidLoad(){
+		this.soldadorProvider.getSoldadores().then((result)=>{
+			this.soldadorList = result;
+		});	
+		this.soldadorProvider.getInspetores().then((result)=> {
+			this.inspetorList = result;
+		});
+		
 	}
 
 	inspecao() {
     	this.navCtrl.pop();
 	}
 
-	salvar() {
-    	console.log(this.item);
+	salvar() {    	
     	this.navCtrl.push('InspecaoListPage');
-
 	}
 
 	aprovar(){
 		this.item.aprovado = true;
 	}
-
 
 	reprovar(){
 		this.item.aprovado = false;

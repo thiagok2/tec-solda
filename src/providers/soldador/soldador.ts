@@ -5,7 +5,6 @@ import { Storage } from '@ionic/storage';
 import { Soldador, SoldadorElement } from '../../models/soldador'
 
 
-
 /*
   Generated class for the SoldadorProvider provider.
 
@@ -59,21 +58,38 @@ export class SoldadorProvider {
   	});
   }
 
-  public getInspetores(){
-    let equipe: SoldadorElement[];
-
-    let inspetores: SoldadorElement[] = [];
-
-    this.getAll().then((result) =>{
-      equipe = result;
-    });
-
-    equipe.forEach(function (p){
-      if(p.soldador.inspetor)
-        inspetores.push(p);
-    });
-
-    return inspetores;
+  getSoldadores(){
+    let equipe: SoldadorElement[] = [];
     
+    return this.storage.forEach((value: Soldador, key: string) =>{
+      if(key.startsWith('pessoa')){
+        let element = new SoldadorElement();
+        element.soldador = value;
+        if(element.soldador.ativo == true) equipe.push(element);
+      }
+    }).then(() =>{
+      return Promise.resolve(equipe);
+    }).catch((err) =>{
+      return Promise.reject(err);
+    });
   }
+
+  public getInspetores(){
+    let equipe: SoldadorElement[] = [];
+
+    return this.storage.forEach((value: Soldador, key: string) =>{
+      if(key.startsWith('pessoa')){
+        let element = new SoldadorElement();
+        element.soldador = value;
+        if(element.soldador.inspetor == true) equipe.push(element);
+      }
+    }).then(() =>{
+      return Promise.resolve(equipe);
+    }).catch((err) =>{
+      return Promise.reject(err);
+    });
+
+  }
+
+  
 }
