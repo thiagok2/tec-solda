@@ -5,6 +5,7 @@ import { Inspecao } from '../../models/inspecao';
 
 import { Items } from '../../providers/providers';
 
+declare var cordova: any;
 
 @IonicPage()
 @Component({
@@ -15,18 +16,29 @@ export class InspecaoListPage {
 
 	currentItems: Inspecao[];
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items, public modalCtrl: ModalController) {
-		 this.currentItems = this.items.query();
+	constructor(public navCtrl: NavController,
+		public navParams: NavParams,
+		public items: Items,
+		public modalCtrl: ModalController) {	 
+	}
+
+	ionViewDidLoad(){
+		this.currentItems = this.items.query();
 	}
 
 	abrirDetalhes(inspecao){
 		this.navCtrl.push('InspecaoEditPage', {
   		item: inspecao
-      });
+		});
+	}
+
+	pathForImage(img) {
+		return cordova.file.dataDirectory + img;
 	}
 
   novaInspecao(){
     this.navCtrl.push('InspecaoNewPage');
-  }
+	}
+	
 
 }
