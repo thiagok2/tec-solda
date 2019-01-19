@@ -6,6 +6,7 @@ import { Inspecao } from '../../models/inspecao'
 import { SoldadorProvider } from '../../providers/soldador/soldador'
 
 import { SoldadorElement } from '../../models/soldador'
+import { Items } from '../../mocks/providers/items';
 
 /**
  * Generated class for the InspecaoEditPage page.
@@ -31,7 +32,8 @@ export class InspecaoEditPage {
 	constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
-		public soldadorProvider: SoldadorProvider) {
+		public soldadorProvider: SoldadorProvider,
+		private items: Items) {
 
   		this.item = navParams.get('item')?navParams.get('item'):navParams.get('inspecao');
 		this.showNewPhoto = navParams.get('inspecao')? true : false;
@@ -53,7 +55,8 @@ export class InspecaoEditPage {
 	}
 
 	salvar() {    	
-    	this.navCtrl.push('InspecaoListPage');
+		this.showNewPhoto ? this.items.add(this.item) : this.items.update(this.item);
+		this.navCtrl.push('InspecaoListPage');
 	}
 
 	aprovar(){
