@@ -146,4 +146,13 @@ export class Items {
   delete(item: Inspecao) {
     this.items.splice(this.items.indexOf(item), 1);
   }
+
+  update(item: Inspecao){
+    this.items.forEach((i)=>{
+      if(i.foto == item.foto){
+        this.delete(i);
+        this.add(item);
+      }
+    })
+  }
 }
