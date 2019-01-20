@@ -28,10 +28,8 @@
 
 <ion-content padding>
     <button ion-button block (click)="inspecao()">Voltar</button>
-	<ion-item>
-		<img *ngIf="!showNewPhoto" [src]="item.foto" style="width: 100%">
-	
-    	<img *ngIf="showNewPhoto" src="{{pathForImage(item.foto)}}" style="width: 100%" [hidden]="lastImage === null">
+	<ion-item>	
+    	<img src="{{pathForImage(item.foto)}}" style="width: 100%" [hidden]="lastImage === null">
 	</ion-item>
 	<ion-item>
 		<ion-label>Data Inspeção</ion-label>

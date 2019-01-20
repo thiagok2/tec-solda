@@ -26,7 +26,7 @@ export class InspecaoEditPage {
 
 	item: Inspecao;
 	soldadorList: SoldadorElement[];
-	showNewPhoto: boolean;
+	newInspection: boolean;
 	inspetorList: SoldadorElement[];
 	
 	constructor(
@@ -36,7 +36,7 @@ export class InspecaoEditPage {
 		private items: Items) {
 
   		this.item = navParams.get('item')?navParams.get('item'):navParams.get('inspecao');
-		this.showNewPhoto = navParams.get('inspecao')? true : false;
+		this.newInspection = navParams.get('inspecao')? true : false;
 		
 	}
 
@@ -55,7 +55,7 @@ export class InspecaoEditPage {
 	}
 
 	salvar() {    	
-		this.showNewPhoto ? this.items.add(this.item) : this.items.update(this.item);
+		this.newInspection ? this.items.add(this.item) : this.items.update(this.item);
 		this.navCtrl.push('InspecaoListPage');
 	}
 
@@ -68,11 +68,7 @@ export class InspecaoEditPage {
 	}
 
 	public pathForImage(img) {
-      if (img === null) {
-        return '';
-      } else {
         return cordova.file.dataDirectory + img;
-      }
     }
 
 }
