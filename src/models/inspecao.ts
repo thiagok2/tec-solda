@@ -29,3 +29,9 @@ export class Inspecao{
 	    }
 	  }
 }
+
+
+export class InspecaoElement {
+	key: string;
+	inspecao: Inspecao;
+}

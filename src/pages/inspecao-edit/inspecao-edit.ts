@@ -2,18 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Inspecao } from '../../models/inspecao'
-
 import { SoldadorProvider } from '../../providers/soldador/soldador'
-
 import { SoldadorElement } from '../../models/soldador'
-import { Items } from '../../mocks/providers/items';
-
-/**
- * Generated class for the InspecaoEditPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { InspecaoProvider } from '../../providers/providers';
 
 declare var cordova: any;
 
@@ -24,38 +15,40 @@ declare var cordova: any;
 })
 export class InspecaoEditPage {
 
-	item: Inspecao;
-	soldadorList: SoldadorElement[];
-	newInspection: boolean;
-	inspetorList: SoldadorElement[];
-	
+	public item: Inspecao;
+	public soldadorList: SoldadorElement[];
+	public newInspection: boolean;
+	public inspetorList: SoldadorElement[];
+	public key: string;		
+
 	constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
 		public soldadorProvider: SoldadorProvider,
-		private items: Items) {
+		private items: InspecaoProvider) {
 
-  		this.item = navParams.get('item')?navParams.get('item'):navParams.get('inspecao');
-		this.newInspection = navParams.get('inspecao')? true : false;
-		
+		  	this.item = navParams.get('item')? navParams.get('item'):navParams.get('inspecao');
+			if(navParams.get('key')){ this.key = navParams.get('key')};
+			this.newInspection = navParams.get('inspecao')? true : false;
 	}
 
 	ionViewDidLoad(){
-		this.soldadorProvider.getSoldadores().then((result)=>{
+		this.soldadorProvider.getSoldadores().then((result)=> {
 			this.soldadorList = result;
 		});	
 		this.soldadorProvider.getInspetores().then((result)=> {
 			this.inspetorList = result;
 		});
-		
 	}
 
 	inspecao() {
     	this.navCtrl.pop();
 	}
 
-	salvar() {    	
-		this.newInspection ? this.items.add(this.item) : this.items.update(this.item);
+	salvar() {  
+			
+		this.newInspection ? this.items.insert(this.item) : this.items.update(this.key,this.item);
+		//this.items.insert(this.item);
 		this.navCtrl.push('InspecaoListPage');
 	}
 

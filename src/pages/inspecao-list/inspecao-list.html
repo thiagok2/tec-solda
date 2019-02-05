@@ -1,58 +1,53 @@
 <ion-header>
 
-    <ion-toolbar >
-    	<ion-buttons start left>
-      		<button ion-button icon-only menuToggle left>
-        		<ion-icon name="menu"></ion-icon>
-     		</button>
-    	</ion-buttons>
+	<ion-toolbar>
+		<ion-buttons start left>
+			<button ion-button icon-only menuToggle left>
+				<ion-icon name="menu"></ion-icon>
+			</button>
+		</ion-buttons>
 
-    	<ion-title>Inspeções</ion-title>
-   
+		<ion-title>Inspeções</ion-title>
 
-    	<ion-buttons end right>  
-      		<button ion-button icon-only>
-        		<ion-icon name="contact"></ion-icon>
-      		</button>
-    	</ion-buttons>
-  </ion-toolbar>
+		<ion-buttons end right>
+			<button ion-button icon-only>
+				<ion-icon name="contact"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
 
 </ion-header>
 
-
 <ion-content padding>
 	<ion-fab top right>
-    	<button ion-fab (click)="novaInspecao()"><ion-icon name="add"></ion-icon></button>
+		<button ion-fab (click)="novaInspecao()">
+			<ion-icon name="add"></ion-icon>
+		</button>
 	</ion-fab>
+	
 	<ion-card *ngFor="let item of currentItems">
-
-		<ion-item>
-	    	<ion-avatar item-start>
-	      		<ion-icon name="contact"></ion-icon>
-	    	</ion-avatar>
-	    	<h2>{{item.soldador}}</h2>
-	    	<p>{{item.dataInspecao}}</p>
-	  	</ion-item>
-
-	  	<img [src]="pathForImage(item.foto)">
+		
+	  	<img [src]="pathForImage(item.inspecao.foto)" alt="">
 
 	  	<ion-item>
 	    	<ion-avatar item-start>
 	      		<ion-icon name="clipboard"></ion-icon>
 	    	</ion-avatar>
-	    	<h2>{{item.inspetor}}</h2>
-	    	<ion-avatar item-end >
-	      		<ion-icon name="thumbs-up" *ngIf="item.aprovado"></ion-icon>
-	      		<ion-icon name="thumbs-down" *ngIf="!item.aprovado"></ion-icon>
+		
+			<h2>{{item.inspecao.inspetor.nome}}</h2>
+		
+			<ion-avatar item-end >
+	      		<ion-icon name="thumbs-up" *ngIf="item.inspecao.aprovado"></ion-icon>
+	      		<ion-icon name="thumbs-down" *ngIf="!item.inspecao.aprovado"></ion-icon>
 	    	</ion-avatar>
 	  	</ion-item>
 
 	  	<ion-card-content>
 	      	<ion-icon name="ios-pricetag-outline" large></ion-icon>
-	    	{{ item.resumo }}
+	    	{{ item.inspecao.resumo }}
 	  	</ion-card-content>
 
-	    <button ion-button block (click)="abrirDetalhes(item)">Detalhes</button>
-  	</ion-card>
+		<button ion-button block (click)="abrirDetalhes(item)">Detalhes</button>
+	</ion-card>
 
 </ion-content>
