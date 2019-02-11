@@ -15,7 +15,6 @@ declare var cordova: any;
 export class InspecaoListPage {
 
 	public currentItems: InspecaoElement[];
-	public exibir: boolean = false;
 
 	constructor(public navCtrl: NavController,
 		public navParams: NavParams,
@@ -28,13 +27,10 @@ export class InspecaoListPage {
 		});
 	}
 
-	editarInspecao(inspecao: InspecaoElement) {
+	abrirDetalhes(inspecao: InspecaoElement) {
 		this.navCtrl.push('InspecaoEditPage', {
-			item: inspecao.inspecao
+			item: inspecao,
 		});
-	}
-	exibirDetalhes(){
-		this.exibir = !this.exibir;
 	}
 
 	pathForImage(img) {
