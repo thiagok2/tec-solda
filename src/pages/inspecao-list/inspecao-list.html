@@ -26,28 +26,26 @@
 	</ion-fab>
 	
 	<ion-card *ngFor="let item of currentItems">
-		
-	  	<img [src]="pathForImage(item.inspecao.foto)" alt="">
 
+	  	<img [src]="pathForImage(item.foto)" alt="">
 	  	<ion-item>
 	    	<ion-avatar item-start>
 	      		<ion-icon name="clipboard"></ion-icon>
-	    	</ion-avatar>
-		
-			<h2>{{item.inspecao.inspetor.nome}}</h2>
-		
+			</ion-avatar>
+			<h2>{{item.soldador}}</h2>
 			<ion-avatar item-end >
-	      		<ion-icon name="thumbs-up" *ngIf="item.inspecao.aprovado"></ion-icon>
-	      		<ion-icon name="thumbs-down" *ngIf="!item.inspecao.aprovado"></ion-icon>
+	      		<ion-icon name="thumbs-up" *ngIf="item.aprovado"></ion-icon>
+	      		<ion-icon name="thumbs-down" *ngIf="!item.aprovado"></ion-icon>
 	    	</ion-avatar>
 	  	</ion-item>
 
 	  	<ion-card-content>
-	      	<ion-icon name="ios-pricetag-outline" large></ion-icon>
-	    	{{ item.inspecao.resumo }}
+			  <ion-icon name="arrow-dropdown" large></ion-icon>
+			  <ion-label>detalhes</ion-label>
 	  	</ion-card-content>
 
-		<button ion-button block (click)="abrirDetalhes(item)">Detalhes</button>
+		<!---<button ion-button block (click)="abrirDetalhes(item)">Detalhes</button>
+			-->
 	</ion-card>
 
 </ion-content>

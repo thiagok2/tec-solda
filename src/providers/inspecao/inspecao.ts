@@ -13,15 +13,15 @@ export class InspecaoProvider {
 	constructor(private storage: Storage) { }
 
 	public insert(i: Inspecao) {
-		//var d = ;
-		//var s = d.getTime();
-		let key = 'inspecao_'+new Date().getTime();
+		let d = new Date();
+		let s = d.getTime();
+		let key = 'inspecao_'+s;
 
 		return this.save(key, i);
 	}
 
 	private save(key: string, i: Inspecao) {
-		return this.storage.set(key, i);
+		return this.storage.set(key,i);
 	}
 
 	public update(key: string, i: Inspecao) {
