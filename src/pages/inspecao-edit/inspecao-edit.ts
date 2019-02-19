@@ -10,8 +10,8 @@ declare var cordova: any;
 
 @IonicPage()
 @Component({
-  selector: 'page-inspecao-edit',
-  templateUrl: 'inspecao-edit.html',
+	selector: 'page-inspecao-edit',
+	templateUrl: 'inspecao-edit.html',
 })
 export class InspecaoEditPage {
 
@@ -19,49 +19,48 @@ export class InspecaoEditPage {
 	public soldadorList: SoldadorElement[];
 	public newInspection: boolean;
 	public inspetorList: SoldadorElement[];
-	public key: string;		
+	public key: string;
 
 	constructor(
-		public navCtrl: NavController, 
+		public navCtrl: NavController,
 		public navParams: NavParams,
 		public soldadorProvider: SoldadorProvider,
 		private items: InspecaoProvider) {
 
-		  	this.item = navParams.get('item')? navParams.get('item'):navParams.get('inspecao');
-			if(navParams.get('key')){ this.key = navParams.get('key')};
-			this.newInspection = navParams.get('inspecao')? true : false;
+		this.newInspection = navParams.get('inspecao') ? true : false;
+		this.item = this.newInspection ? navParams.get('inspecao') : navParams.get('item');
+		if (navParams.get('key')) { this.key = navParams.get('key') };
+
 	}
 
-	ionViewDidLoad(){
-		this.soldadorProvider.getSoldadores().then((result)=> {
+	ionViewDidLoad() {
+		this.soldadorProvider.getSoldadores().then((result) => {
 			this.soldadorList = result;
-		});	
-		this.soldadorProvider.getInspetores().then((result)=> {
+		});
+		this.soldadorProvider.getInspetores().then((result) => {
 			this.inspetorList = result;
 		});
 	}
 
 	inspecao() {
-    	this.navCtrl.pop();
+		this.navCtrl.pop();
 	}
 
-	salvar() {  
-			
-		this.newInspection ? this.items.insert(this.item) : this.items.update(this.key,this.item);
-		//this.items.insert(this.item);
+	salvar() {
+		this.newInspection ? this.items.insert(this.item): this.items.update(this.item);
 		this.navCtrl.push('InspecaoListPage');
 	}
 
-	aprovar(){
+	aprovar() {
 		this.item.aprovado = true;
 	}
 
-	reprovar(){
+	reprovar() {
 		this.item.aprovado = false;
 	}
 
 	public pathForImage(img) {
-        return cordova.file.dataDirectory + img;
-    }
+		return cordova.file.dataDirectory + img;
+	}
 
 }
