@@ -19,7 +19,7 @@ export class InspecaoListPage {
 	constructor(public navCtrl: NavController,
 		public navParams: NavParams,
 		public items: InspecaoProvider,
-		public modalCtrl: ModalController) {}
+		public modalCtrl: ModalController) { }
 
 	ionViewDidLoad() {
 		this.items.getAll().then((result) => {
@@ -41,4 +41,7 @@ export class InspecaoListPage {
 		this.navCtrl.push('InspecaoNewPage');
 	}
 
+	retornaIcones(icon: boolean) {
+		return icon ? "checkmark" : "close";
+	}
 }
