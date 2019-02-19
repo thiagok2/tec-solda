@@ -16,16 +16,17 @@ export class InspecaoProvider {
 		let d = new Date();
 		let s = d.getTime();
 		let key = 'inspecao_'+s;
+		i.key = key;
 
-		return this.save(key, i);
+		return this.save(i);
 	}
 
-	private save(key: string, i: Inspecao) {
-		return this.storage.set(key,i);
+	private save(i: Inspecao) {
+		return this.storage.set(i.key,i);
 	}
 
-	public update(key: string, i: Inspecao) {
-		return this.save(key, i)
+	public update(i: Inspecao) {
+		return this.save(i);
 	}
 
 	public delete(key: string) {
