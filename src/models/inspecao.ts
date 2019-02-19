@@ -1,7 +1,7 @@
 
 
 export class Inspecao{
-
+	key?: string; //  <== define chave no armazenamento no storage 
 	dataInspecao: Date;
 	soldador: string;
 	inspetor: string;
