@@ -1,96 +1,53 @@
-# The Ionic Super Starter 🎮
+# TecSolda - UM APLICATIVO PARA PLATAFORMAS MÓVEIS DE INSPEÇÃO VISUAL E CÁLCULO DE PARÂMETROS DE SOLDAGEM
 
-<img src="https://user-images.githubusercontent.com/236501/32385619-bddac0ac-c08c-11e7-9ee4-9c892197191f.png" width="400" />
 
-The Ionic Super Starter is a batteries-included starter project for Ionic apps
-complete with pre-built pages, providers, and best practices for Ionic
-development.
+Este projeto tem como objetivo aprimorar o aplicativo para plataformas móveis, o app TecSolda. Este foi criado no projeto PIBIT de mesmo nome no ciclo 2017/2018. A finalidade da aplicação é contribuir na melhoria dos processos de soldagem e também na formação dos técnicos da área de metalmecânica, em especial, da área de soldagem. 
+A soldagem é um processo usado para unir materiais de forma permanente. Sua aplicação varia de acordo com os diversos métodos existentes e características: juntas apresentadas, forma, espessura, geometria das peças, tipo de material usado e etc. Grande parte dessa complexidade está consolidada em procedimentos, fórmulas e equações matemáticas presentes na literatura da área. A execução adequada, precisa e confiável dos processos de soldagem requer bastante conhecimento teórico e experiência no processo. 
 
-The goal of the Super Starter is to get you from zero to app store faster than
-before, with a set of opinions from the Ionic team around page layout,
-data/user management, and project structure.
-
-The way to use this starter is to pick and choose the various page types you
-want use, and remove the ones you don't. If you want a blank slate, this
-starter isn't for you (use the `blank` type instead).
-
-One of the big advances in Ionic was moving from a rigid route-based navigation
-system to a flexible push/pop navigation system modeled off common native SDKs.
-We've embraced this pattern to provide a set of reusable pages that can be
-navigated to anywhere in the app. Take a look at the [Settings
-page](https://github.com/ionic-team/starters/blob/master/ionic-angular/official/super/src/pages/settings/settings.html)
-for a cool example of a page navigating to itself to provide a different UI
-without duplicating code.
+Essa nova submissão visa a continuidade do projeto já desenvolvido. A solução criada já facilita e guia o procedimento correto do processo de soldagem mediante a execução correta de cálculos e parâmetros de soldagem. Outra funcionalidade já presente é a inspeção de soldas, essa que contribui para melhor um melhor monitoramento e avaliação sobre os trabalhos já realizados. O propósito da renovação desse projeto é o aprimoramento das funcionalidades inicialmente implementadas, a extensão dos cálculos para mais métodos de soldagem e a realização de testes mais amplos já no setor produtivo. Atualmente, o único módulo de cálculo implementado é o do Eletrodo Revestido. A perspectiva é ampliar para os processos MIG/MAG e TIG. Na inspeção, a persistência das imagens capturadas e das avaliações realizadas está local.
 
 ## Table of Contents
 
-1. [Getting Started](#getting-started)
-2. [Pages](#pages)
-3. [Providers](#providers)
-4. [i18n](#i18n) (adding languages)
+1. [Instalação](#instalacao)
+2. [Emulação](#Emulação)
+3. [Distribuição](#Distribuição)
+## <a name="instalacao"></a>Instalação
 
-## <a name="getting-started"></a>Getting Started
+1. npm install -g ionic cordova
 
-To test this starter out, install the latest version of the Ionic CLI and run:
+2. npm i --save pdfmake @ionic-native/file@4 @ionic-native/file-path@4 @ionic-native/file-opener@4
 
-```bash
-ionic start mySuperApp super
-```
+3. cordova platform add android@7.1.1
 
-## Pages
+ionic serve
 
-The Super Starter comes with a variety of ready-made pages. These pages help
-you assemble common building blocks for your app so you can focus on your
-unique features and branding.
+## Emulação
 
-The app loads with the `FirstRunPage` set to `TutorialPage` as the default. If
-the user has already gone through this page once, it will be skipped the next
-time they load the app.
+1. Instalar Android Studio, definir as variáveis de ambiente do android(ANDROID_HOME) e gradle.
+2. Criar AVDs na mesma versão da plataforma adicionada na instalação.
 
-If the tutorial is skipped but the user hasn't logged in yet, the Welcome page
-will be displayed which is a "splash" prompting the user to log in or create an
-account.
+3. ionic cordova emulate android
 
-Once the user is authenticated, the app will load with the `MainPage` which is
-set to be the `TabsPage` as the default.
 
-The entry and main pages can be configured easily by updating the corresponding
-variables in
-[src/pages/pages.ts](https://github.com/ionic-team/starters/blob/master/ionic-angular/official/super/src/pages/pages.ts).
 
-Please read the
-[Pages](https://github.com/ionic-team/starters/tree/master/ionic-angular/official/super/src/pages)
-readme, and the readme for each page in the source for more documentation on
-each.
+## Distribuição
+1. ionic cordova build --release android --prod
 
-## Providers
+Ir até o local 
+cd platforms/android/app/build/outputs/apk
 
-The Super Starter comes with some basic implementations of common providers.
+Gerar chave privada usando keytool,
+# $keytool -genkey -v -keystore tecsolda_v0x.keystore -alias tecsolda_v0x -keyalg RSA -keysize 2048 -validity 10000
 
-### User
+Instalar jarsigner
 
-The `User` provider is used to authenticate users through its
-`login(accountInfo)` and `signup(accountInfo)` methods, which perform `POST`
-requests to an API endpoint that you will need to configure.
+Executar
+# jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore tecsolda_v0x.keystore app-release-unsigned.apk tecsolda_v0x
 
-### Api
+Caso zipalign não esteja no path, copiar de /path/to/Android/sdk/build-tools/VERSION/zipalign para platforms/android/build/outputs/apk.
 
-The `Api` provider is a simple CRUD frontend to an API. Simply put the root of
-your API url in the Api class and call get/post/put/patch/delete 
 
-## i18n
+#zipalign -v 4 app-release-unsigned.apk tecsolda_v0x.apk
 
-Ionic Super Starter comes with internationalization (i18n) out of the box with
-[ngx-translate](https://github.com/ngx-translate/core). This makes it easy to
-change the text used in the app by modifying only one file. 
+OK, Apk gerado e assinado.
 
-### Adding Languages
-
-To add new languages, add new files to the `src/assets/i18n` directory,
-following the pattern of LANGCODE.json where LANGCODE is the language/locale
-code (ex: en/gb/de/es/etc.).
-
-### Changing the Language
-
-To change the language of the app, edit `src/app/app.component.ts` and modify
-`translate.use('en')` to use the LANGCODE from `src/assets/i18n/`
