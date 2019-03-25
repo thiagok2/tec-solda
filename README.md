@@ -1,4 +1,5 @@
-# TecSolda - UM APLICATIVO PARA PLATAFORMAS MÓVEIS DE INSPEÇÃO VISUAL E CÁLCULO DE PARÂMETROS DE SOLDAGEM
+# TecSolda
+UM APLICATIVO PARA PLATAFORMAS MÓVEIS DE INSPEÇÃO VISUAL E CÁLCULO DE PARÂMETROS DE SOLDAGEM
 
 
 Este projeto tem como objetivo aprimorar o aplicativo para plataformas móveis, o app TecSolda. Este foi criado no projeto PIBIT de mesmo nome no ciclo 2017/2018. A finalidade da aplicação é contribuir na melhoria dos processos de soldagem e também na formação dos técnicos da área de metalmecânica, em especial, da área de soldagem. 
@@ -37,17 +38,17 @@ Ir até o local
 cd platforms/android/app/build/outputs/apk
 
 Gerar chave privada usando keytool,
-# $keytool -genkey -v -keystore tecsolda_v0x.keystore -alias tecsolda_v0x -keyalg RSA -keysize 2048 -validity 10000
+$keytool -genkey -v -keystore tecsolda_v0x.keystore -alias tecsolda_v0x -keyalg RSA -keysize 2048 -validity 10000
 
 Instalar jarsigner
 
 Executar
-# jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore tecsolda_v0x.keystore app-release-unsigned.apk tecsolda_v0x
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore tecsolda_v0x.keystore app-release-unsigned.apk tecsolda_v0x
 
 Caso zipalign não esteja no path, copiar de /path/to/Android/sdk/build-tools/VERSION/zipalign para platforms/android/build/outputs/apk.
 
 
-#zipalign -v 4 app-release-unsigned.apk tecsolda_v0x.apk
+zipalign -v 4 app-release-unsigned.apk tecsolda_v0x.apk
 
 OK, Apk gerado e assinado.
 
