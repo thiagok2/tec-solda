@@ -14,11 +14,9 @@ Essa nova submissão visa a continuidade do projeto já desenvolvido. A soluçã
 3. [Distribuição](#Distribuição)
 ## <a name="instalacao"></a>Instalação
 
-1. npm install -g ionic cordova
+1. npm install -g ionic@4.2 cordova@7
 
-2. npm i --save pdfmake @ionic-native/file@4 @ionic-native/file-path@4 @ionic-native/file-opener@4
-
-3. cordova platform add android@7.1.1
+2. cordova platform add android@7.1.1
 
 ionic serve
 
