@@ -68,10 +68,14 @@
 			</ion-row>
 		</ion-card>
 	</ion-list>
+
 	<ion-fab right bottom>
-		<button ion-fab color="primary" (click)="addSoldador()">
-			<ion-icon name="add"></ion-icon>
-		</button>
+		<button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
+		<ion-fab-list side="top">
+		  <button ion-fab (click)="loginFacebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+		  <button ion-fab (click)="loginGoogle()"><ion-icon name="logo-google"></ion-icon></button>
+		  <button ion-fab (click)="addSoldador()"><ion-icon name="add"></ion-icon></button>
+		</ion-fab-list>
 	</ion-fab>
 
 </ion-content>

@@ -12,6 +12,12 @@ import { FileOpener } from '@ionic-native/file-opener'
 import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
+import { GooglePlus } from '@ionic-native/google-plus';
+
+import { Facebook } from '@ionic-native/facebook';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
 
 import { Items } from '../mocks/providers/items';
 import { Settings } from '../providers/providers';
@@ -20,6 +26,7 @@ import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 import { InspecaoProvider } from '../providers/inspecao/inspecao';
 import { SoldadorProvider } from '../providers/soldador/soldador';
+import { firebaseConfig } from './firebase.config';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -68,7 +75,10 @@ export function provideSettings(storage: Storage) {
       dayNames: ['domingo', 'segunda-feira', 'ter\u00e7a-feira', 'quarta-feira','quinta-feira','sexta-feira','s\u00e1bado'],
       dayShortNames: ['dom', 'seg', 'ter', 'qua', 'qui',  'sex', 'sab' ]
      }),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -89,7 +99,9 @@ export function provideSettings(storage: Storage) {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     InspecaoProvider,
     SoldadorProvider,
-    FileOpener
+    FileOpener,
+    Facebook,
+    GooglePlus
   ]
 })
 export class AppModule { }
