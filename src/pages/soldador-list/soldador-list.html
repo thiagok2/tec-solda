@@ -15,7 +15,6 @@
 		<ion-list-header>
 
 		</ion-list-header>
-
 		<ion-card *ngFor="let item of soldadorList" [ngClass]="{'item-inactive': !item.soldador.ativo }">
 			<ion-card-header>
 				<ion-item>
@@ -70,10 +69,11 @@
 	</ion-list>
 
 	<ion-fab right bottom>
-		<button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
+		<button ion-fab><ion-icon name="add"></ion-icon></button>
 		<ion-fab-list side="top">
-		  <button ion-fab (click)="loginFacebook()"><ion-icon name="logo-facebook"></ion-icon></button>
-		  <button ion-fab (click)="loginGoogle()"><ion-icon name="logo-google"></ion-icon></button>
+		  <button ion-fab *ngIf="user.name" (click)="logout()"><ion-icon name="log-out"></ion-icon></button>
+		  <button ion-fab *ngIf="!user.name" (click)="loginFacebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+		  <button ion-fab *ngIf="!user.name"(click)="loginGoogle()"><ion-icon name="logo-google"></ion-icon></button>
 		  <button ion-fab (click)="addSoldador()"><ion-icon name="add"></ion-icon></button>
 		</ion-fab-list>
 	</ion-fab>

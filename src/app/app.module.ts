@@ -101,7 +101,7 @@ export function provideSettings(storage: Storage) {
     SoldadorProvider,
     FileOpener,
     Facebook,
-    GooglePlus
+    GooglePlus,
   ]
 })
 export class AppModule { }
