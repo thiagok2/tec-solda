@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
-import { Inspecao } from '../../models/inspecao'
-import { SoldadorProvider } from '../../providers/soldador/soldador'
-import { SoldadorElement } from '../../models/soldador'
+import { Inspecao } from '../../models/inspecao';
+import { SoldadorProvider } from '../../providers/soldador/soldador';
+import { SoldadorElement } from '../../models/soldador';
 import { InspecaoProvider } from '../../providers/providers';
 import { FileOpener } from '@ionic-native/file-opener';
 import { File } from '@ionic-native/file';
+import { PdfCreateProvider } from '../../providers/create-pdf/pdf-create';
 
 import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts'
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 declare var cordova: any;
@@ -50,18 +52,9 @@ export class InspecaoEditPage {
 			this.inspetorList = result;
 		});
 	}
+	
 	createPdf() {
-		let YOUR_DEFINITION_HERE = {
-			content: [
-				{
-					text: 'Relatório de Inspeçao',
-					style: 'header',
-					alignment: 'center'
-				},
-				
-			],
-
-		}
+		let YOUR_DEFINITION_HERE = new PdfCreateProvider(this.item).returnPdf();
 
 		pdfMake.createPdf(YOUR_DEFINITION_HERE).getBlob(buffer => {
 			this.file.resolveDirectoryUrl(this.file.externalRootDirectory)
