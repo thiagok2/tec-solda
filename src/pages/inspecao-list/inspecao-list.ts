@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
-import { Inspecao, InspecaoElement } from '../../models/inspecao';
+import { InspecaoElement } from '../../models/inspecao';
 
-import { Items, InspecaoProvider } from '../../providers/providers';
+import { InspecaoProvider } from '../../providers/providers';
 
 declare var cordova: any;
 
@@ -38,7 +38,7 @@ export class InspecaoListPage {
 	}
 
 	novaInspecao() {
-		this.navCtrl.push('InspecaoNewPage');
+		this.navCtrl.setRoot('InspecaoNewPage');
 	}
 
 	retornaIcones(icon: boolean) {
