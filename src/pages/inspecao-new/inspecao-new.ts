@@ -4,7 +4,6 @@ import { IonicPage, NavController, NavParams, ToastController, Platform } from '
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { File } from '@ionic-native/file';
-import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 
 import { Inspecao } from '../../models/inspecao'
@@ -31,7 +30,7 @@ export class InspecaoNewPage {
   			public navCtrl: NavController, 
   			public navParams: NavParams,
   			public camera : Camera,
-        private transfer: Transfer, private file: File, private filePath: FilePath,
+        private file: File, private filePath: FilePath,
         public toastCtrl: ToastController, public platform: Platform) {
   	}
 
@@ -39,7 +38,7 @@ export class InspecaoNewPage {
   	getPhoto(type){
 
    		const options: CameraOptions = {
-    		quality: 100,
+    		quality: 50,
       		destinationType: this.camera.DestinationType.DATA_URL,
       		encodingType: this.camera.EncodingType.JPEG,
       		mediaType:this.camera.MediaType.PICTURE,
@@ -57,10 +56,13 @@ export class InspecaoNewPage {
  	  }
 
     takePhoto(type){
-
-      let sourceType = type == "picture" ? this.camera.PictureSourceType.CAMERA : this.camera.PictureSourceType.PHOTOLIBRARY
-      
-      var options = {
+      let sourceType;
+      if(this.platform.is(cordova)){
+        sourceType = type == "picture" ? this.camera.PictureSourceType.CAMERA : this.camera.PictureSourceType.PHOTOLIBRARY
+      }else{
+        
+      }
+      let options = {
           quality: 50,
           sourceType: sourceType,
           saveToPhotoAlbum: true,
@@ -76,8 +78,8 @@ export class InspecaoNewPage {
               this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
             });
         }else {
-          var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
-          var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
+          let currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
+          let correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
           this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
         }
 
@@ -97,7 +99,7 @@ export class InspecaoNewPage {
 
     // Create a new name for the image
     private createFileName() {
-      var d = new Date(),
+      let d = new Date(),
       n = d.getTime(),
       newFileName =  'inspecao_'+n + ".jpg";
       return newFileName;
@@ -143,7 +145,7 @@ export class InspecaoNewPage {
    	}
 
     voltar(){
-      this.navCtrl.push('InspecaoListPage');
+      this.navCtrl.setRoot('InspecaoListPage');
     }
 
 }
