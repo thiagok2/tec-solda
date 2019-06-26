@@ -45,7 +45,7 @@ export class SoldadorListPage {
 	}
 
 	addSoldador() {
-		this.navCtrl.push("SoldadorEditPage");
+		this.navCtrl.setRoot("SoldadorEditPage");
 	}
 
 	editarSoldador(item: SoldadorElement) {
@@ -67,8 +67,8 @@ export class SoldadorListPage {
 			});
 	}
 
-	loginFacebook(): Promise<any> {
-		return this.facebook.login(['email'])
+	loginFacebook(){
+		this.facebook.login(['email'])
 			.then(response => {
 				const facebookCredential = firebase.auth.FacebookAuthProvider
 					.credential(response.authResponse.accessToken);
