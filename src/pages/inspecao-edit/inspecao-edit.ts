@@ -5,14 +5,7 @@ import { Inspecao } from '../../models/inspecao';
 import { SoldadorProvider } from '../../providers/soldador/soldador';
 import { SoldadorElement } from '../../models/soldador';
 import { InspecaoProvider } from '../../providers/providers';
-import { FileOpener } from '@ionic-native/file-opener';
-import { File } from '@ionic-native/file';
-import { PdfCreateProvider } from '../../providers/create-pdf/pdf-create';
 
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
-
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 declare var cordova: any;
 
@@ -22,6 +15,7 @@ declare var cordova: any;
 	templateUrl: 'inspecao-edit.html',
 })
 export class InspecaoEditPage {
+
 
 	public item: Inspecao;
 	public soldadorList: SoldadorElement[];
@@ -34,8 +28,6 @@ export class InspecaoEditPage {
 		public navParams: NavParams,
 		public soldadorProvider: SoldadorProvider,
 		private items: InspecaoProvider,
-		private fileOpener: FileOpener,
-		private file: File,
 		public alertCtrl: AlertController) {
 
 		this.newInspection = navParams.get('inspecao') ? true : false;
@@ -52,50 +44,15 @@ export class InspecaoEditPage {
 			this.inspetorList = result;
 		});
 	}
+
 	
-	createPdf() {
-		let YOUR_DEFINITION_HERE = new PdfCreateProvider(this.item).returnPdf();
-
-		pdfMake.createPdf(YOUR_DEFINITION_HERE).getBlob(buffer => {
-			this.file.resolveDirectoryUrl(this.file.externalRootDirectory)
-				.then(dirEntry => {
-					this.file.getFile(dirEntry, `${this.item.key}.pdf`, { create: true })
-						.then(fileEntry => {
-							fileEntry.createWriter(writer => {
-								writer.onwrite = () => {
-									this.fileOpener.open(fileEntry.toURL(), 'application/pdf')
-										.then(res => { })
-										.catch(err => {
-											const alert = this.alertCtrl.create({ message: err.message, buttons: ['Ok'] });
-											alert.present();
-										});
-								}
-								writer.write(buffer);
-							})
-						})
-						.catch(err => {
-							const alert = this.alertCtrl.create({ message: err, buttons: ['Ok'] });
-							alert.present();
-						});
-				})
-				.catch(err => {
-					const alert = this.alertCtrl.create({ message: err, buttons: ['Ok'] });
-					alert.present();
-				});
-
-		});
-
-
-
-	}
-
-	inspecao() {
+	returnForPageInspecaoNew() {
 		this.navCtrl.pop();
 	}
 
 	salvar() {
-		this.newInspection ? this.items.insert(this.item) : this.items.update(this.item);
-		this.navCtrl.push('InspecaoListPage');
+		this.newInspection ? this.items.insert(this.item) : this.items.update(this.item)
+		this.navCtrl.setRoot('InspecaoListPage')	
 	}
 
 	aprovar() {
@@ -108,6 +65,14 @@ export class InspecaoEditPage {
 
 	public pathForImage(img) {
 		return cordova.file.dataDirectory + img;
+	}
+
+	showAlert(message) {
+		this.alertCtrl.create({
+			title: 'Aviso',
+			message: message,
+			buttons: ['Ok']
+		}).present();
 	}
 
 }
