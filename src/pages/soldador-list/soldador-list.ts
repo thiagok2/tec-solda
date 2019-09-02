@@ -27,7 +27,7 @@ export class SoldadorListPage {
 	}
 
 	addSoldador() {
-		this.navCtrl.setRoot("SoldadorEditPage");
+		this.navCtrl.push("SoldadorEditPage");
 	}
 
 	editarSoldador(item: SoldadorElement) {
