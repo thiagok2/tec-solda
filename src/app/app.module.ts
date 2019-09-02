@@ -33,7 +33,6 @@ import { SoldadorProvider } from '../providers/soldador/soldador';
 import { firebaseConfig } from './firebase.config';
 import { PdfCreateProvider } from '../providers/create-pdf/pdf-create';
 import { DatabaseProvider } from '../providers/database/database';
-import { StorageFireProvider } from '../providers/database/storagefire';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -115,8 +114,7 @@ export function provideSettings(storage: Storage) {
     Facebook,
     GooglePlus,
     PdfCreateProvider,
-    DatabaseProvider,
-    StorageFireProvider
+    DatabaseProvider
   ]
 })
 export class AppModule { }
