@@ -33,26 +33,44 @@ export class InspecaoEditPage {
 		this.newInspection = navParams.get('inspecao') ? true : false;
 		this.item = this.newInspection ? navParams.get('inspecao') : navParams.get('item');
 		if (navParams.get('key')) { this.key = navParams.get('key') };
-
 	}
 
 	ionViewDidLoad() {
-		this.soldadorProvider.getSoldadores().then((result) => {
-			this.soldadorList = result;
-		});
-		this.soldadorProvider.getInspetores().then((result) => {
+		this.getListSoldador();
+		this.getListInspetor();
+	}
+
+	async getListInspetor() {
+		await this.soldadorProvider.getInspetores().then((result) => {
 			this.inspetorList = result;
 		});
 	}
 
-	
+	async getListSoldador() {
+		await this.soldadorProvider.getSoldadores().then((result) => {
+			this.soldadorList = result;
+		});
+	}
+
 	returnForPageInspecaoNew() {
 		this.navCtrl.pop();
 	}
 
 	salvar() {
-		this.newInspection ? this.items.insert(this.item) : this.items.update(this.item)
-		this.navCtrl.setRoot('InspecaoListPage')	
+		this.newInspection ? this.saveInspecao() : this.updateInspecao();
+		this.goForInspecaoListPage();
+	}
+
+	goForInspecaoListPage() {
+		this.navCtrl.setRoot('InspecaoListPage');
+	}
+
+	private saveInspecao() {
+		this.items.insert(this.item);
+	}
+
+	private updateInspecao() {
+		this.items.update(this.item);
 	}
 
 	aprovar() {
