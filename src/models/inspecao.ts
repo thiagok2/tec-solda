@@ -21,6 +21,7 @@ export class Inspecao{
 	respingo: boolean = false;
 	desalinhamento: boolean = false;
 	faltaPenetracao: boolean = false;
+  	urlImage?: any;
 
 	constructor(fields: any) {
    
