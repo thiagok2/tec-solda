@@ -25,14 +25,14 @@
     </button>
   </ion-fab>
 
-  <ion-card *ngFor="let item of currentItems"  padding>
+  <ion-card *ngFor="let item of currentItems" padding>
 
     <ion-item>
       <ion-avatar item-start>
         <ion-icon name="contact"></ion-icon>
       </ion-avatar>
       <h2>{{item.soldador}}</h2>
-      <p>{{item.dataInspecao}}</p>
+      <p>{{dateFormatToDisplay(item.dataInspecao)}}</p>
     </ion-item>
     <img [src]="pathForImage(item.foto)" alt="" (click)="abrirDetalhes(item)">
 
@@ -61,8 +61,9 @@
               <ion-icon name="paper"></ion-icon>
             </button>
           </ion-col>
+          
           <ion-col width-30>
-            <button color=light style="width:100%" ion-button (click)="deleteCardInspection(item.key)" large padding>
+            <button color=light style="width:100%" ion-button (click)="deleteInspect(item.key)" large padding>
               <ion-icon name="trash"></ion-icon>
             </button>
           </ion-col>
