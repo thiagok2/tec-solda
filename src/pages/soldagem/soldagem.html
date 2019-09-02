@@ -1,69 +1,65 @@
-<!--
-  Generated template for the SoldagemPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-toolbar >
+  <ion-toolbar>
     <ion-buttons start left>
       <button ion-button icon-only menuToggle left>
-          <ion-icon name="menu"></ion-icon>
+        <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
 
     <ion-title>EPI</ion-title>
-   
 
-    <ion-buttons end right>  
+    <ion-buttons end right>
       <button ion-button icon-only>
         <ion-icon name="contact"></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>
-
 </ion-header>
 
 
 <ion-content padding>
-	<div id="logo-epi">
-    	<img src="assets/img/logo-epi.jpg">
-    </div>
+  <div id="logo-epi">
+    <img src="assets/img/logo-epi.jpg">
+  </div>
 
-    <ion-list>
-      <ion-list-header>
-        <h2>Selecione os EPIs disponíveis</h2>
-      </ion-list-header>
-
-
-      <ion-item>
-        <ion-label>Avental</ion-label>
-        <ion-toggle checked="false"></ion-toggle>
-      </ion-item>
-      <ion-item>
-        <ion-label>Máscara</ion-label>
-        <ion-toggle checked="false"></ion-toggle>
-      </ion-item>
-      <ion-item>
-        <ion-label>Luvas</ion-label>
-        <ion-toggle checked="false"></ion-toggle>
-      </ion-item>
-      <ion-item>
-        <ion-label>Botas</ion-label>
-        <ion-toggle checked="false"></ion-toggle>
-      </ion-item>
-      <ion-item>
-        <ion-label>Peneira</ion-label>
-        <ion-toggle checked="false"></ion-toggle>
-      </ion-item>
-      <ion-item>
-        <ion-label>Protetor Auricular</ion-label>
-        <ion-toggle checked="false"></ion-toggle>
-      </ion-item>
-    </ion-list>
+  <ion-list>
+    <ion-list-header>
+      <h2>Selecione os EPIs disponíveis</h2>
+    </ion-list-header>
 
 
-    <button ion-button block (click)="processos()">Avançar</button>
+    <ion-item>
+      <ion-label>Avental</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Máscara</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Luvas</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Botas</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Peneira</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Protetor Auricular</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab top right>
+    <button ion-fab (click)="processos()">
+      <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+  </ion-fab>
+
 
 </ion-content>
