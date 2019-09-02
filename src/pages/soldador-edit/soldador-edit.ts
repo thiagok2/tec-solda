@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 
 import { SoldadorProvider } from '../../providers/soldador/soldador'
 import { Soldador } from '../../models/soldador'
+import { SoldadorListPage } from '../soldador-list/soldador-list';
 
 @IonicPage()
 @Component({
@@ -32,14 +33,21 @@ export class SoldadorEditPage {
 
   salvar(){
   	this.salvarSoldador().then(()=>{
-  		this.toast.create({ message: 'Soldador salvo.', duration: 3000, position: 'botton' }).present();
-        this.navCtrl.push('SoldadorListPage');
+  		let msg = 'Soldador salvo.';
+		  this.showToast(msg);
+		  this.navCtrl.setRoot(SoldadorListPage.name);
   	}).catch(() => {
-  		this.toast.create(
-  			{ message: 'Erro ao salvar o soldador.', 
-  				duration: 3000, 
-  				position: 'botton' }).present();
+		let msg = 'Erro ao salvar o soldador.';
+  		this.showToast(msg);
   	});
+  }
+  
+  showToast(message){
+	  this.toast.create({
+		  message: message,
+		  duration: 3000,
+		  position: 'botton'
+	  }).present();
   }
 
   private salvarSoldador(){
@@ -48,10 +56,6 @@ export class SoldadorEditPage {
   	}else{
   		return this.soldadorProvider.insert(this.soldador);
   	}
-  }
-
-  ionViewDidLoad() {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-    console.log('ionViewDidLoad SoldadorEditPage');
   }
 
 }

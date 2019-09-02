@@ -15,7 +15,6 @@
 		<ion-list-header>
 
 		</ion-list-header>
-
 		<ion-card *ngFor="let item of soldadorList" [ngClass]="{'item-inactive': !item.soldador.ativo }">
 			<ion-card-header>
 				<ion-item>
@@ -68,10 +67,9 @@
 			</ion-row>
 		</ion-card>
 	</ion-list>
-	<ion-fab right bottom>
-		<button ion-fab color="primary" (click)="addSoldador()">
-			<ion-icon name="add"></ion-icon>
-		</button>
+
+	<ion-fab right top mini>
+		<button ion-fab (click)="addSoldador()"><ion-icon name="add"></ion-icon></button>
 	</ion-fab>
 
 </ion-content>

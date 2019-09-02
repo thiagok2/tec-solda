@@ -1,35 +1,26 @@
-<!--
-  Generated template for the InspecaoEditPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
+	<ion-toolbar>
 
-   <ion-toolbar >
-    	<ion-buttons start left>
-      		<button ion-button icon-only menuToggle left>
-        		<ion-icon name="menu"></ion-icon>
-     		</button>
-    	</ion-buttons>
+    <ion-buttons start left>
+			<button ion-button icon-only menuToggle left>
+				<ion-icon name="menu"></ion-icon>
+			</button>
+		</ion-buttons>
 
-    	<ion-title>Inspeção</ion-title>
-   
+		<ion-title>Inspeção</ion-title>
 
-    	<ion-buttons end right>  
-      		<button ion-button icon-only>
-        		<ion-icon name="contact"></ion-icon>
-      		</button>
-    	</ion-buttons>
-    </ion-toolbar>
-
+		<ion-buttons end right>
+			<button ion-button icon-only>
+				<ion-icon name="contact"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
 </ion-header>
 
-
 <ion-content padding>
-    <button ion-button block (click)="inspecao()">Voltar</button>
-	<ion-item>	
-    	<img src="{{pathForImage(item.foto)}}" style="width: 100%" [hidden]="lastImage === null">
+	<button ion-button block (click)="returnForPageInspecaoNew()">Voltar</button>
+	<ion-item>
+		<img src="{{pathForImage(item.foto)}}" style="width: 100%" [hidden]="lastImage === null">
 	</ion-item>
 	<ion-item>
 		<ion-label>Data Inspeção</ion-label>
@@ -39,80 +30,75 @@
 	<ion-item>
 		<ion-label>Soldador</ion-label>
 		<ion-select [(ngModel)]="item.soldador" cancelText="Cancelar" okText="OK">
-	    	<ion-option *ngFor="let soldadorElement of soldadorList">
-                {{soldadorElement.soldador.nome}}
-            </ion-option>
-        </ion-select>
+			<ion-option *ngFor="let soldadorElement of soldadorList">
+				{{soldadorElement.soldador.nome}}
+			</ion-option>
+		</ion-select>
 	</ion-item>
 
 	<ion-item>
 		<ion-label>Inspetor</ion-label>
 		<ion-select [(ngModel)]="item.inspetor" cancelText="Cancelar" okText="OK">
-	    	<ion-option *ngFor="let inspetorElement of inspetorList">
+			<ion-option *ngFor="let inspetorElement of inspetorList">
 				{{inspetorElement.soldador.nome}}
 			</ion-option>
-	    </ion-select>
+		</ion-select>
 	</ion-item>
 
 	<ion-item>
-    	<ion-label>Mordedura</ion-label>
-    	<ion-toggle [(ngModel)]="item.mordedura"></ion-toggle>
-    </ion-item>
-    <ion-item>
-    	<ion-label>Poros</ion-label>
-    	<ion-toggle [(ngModel)]="item.poros"></ion-toggle>
-    </ion-item>
-    <ion-item>
-    	<ion-label>Trinca</ion-label>
-    	<ion-toggle [(ngModel)]="item.trinca"></ion-toggle>
-    </ion-item>
-    <ion-item>
-    	<ion-label>Cordão Fino</ion-label>
-    	<ion-toggle [(ngModel)]="item.cordaoFino"></ion-toggle>
-    </ion-item>
-    <ion-item>
-    	<ion-label>Falta de Fusão</ion-label>
-    	<ion-toggle [(ngModel)]="item.faltaFusao"></ion-toggle>
-    </ion-item>
-    <ion-item>
-    	<ion-label>Cordão Largo</ion-label>
-        <ion-toggle [(ngModel)]="item.cordaoLargo"></ion-toggle>
-    </ion-item>
-    <ion-item>
-    	<ion-label>Respingo</ion-label>
-        <ion-toggle [(ngModel)]="item.respingo"></ion-toggle>
-    </ion-item>
-     <ion-item>
-    	<ion-label>Desalinhamento</ion-label>
-        <ion-toggle [(ngModel)]="item.desalinhamento"></ion-toggle>
-    </ion-item>
-     <ion-item>
-    	<ion-label>Falta de Penetracão</ion-label>
-        <ion-toggle [(ngModel)]="item.faltaPenetracao"></ion-toggle>
-    </ion-item>
+		<ion-label>Mordedura</ion-label>
+		<ion-toggle [(ngModel)]="item.mordedura"></ion-toggle>
+	</ion-item>
+	<ion-item>
+		<ion-label>Poros</ion-label>
+		<ion-toggle [(ngModel)]="item.poros"></ion-toggle>
+	</ion-item>
+	<ion-item>
+		<ion-label>Trinca</ion-label>
+		<ion-toggle [(ngModel)]="item.trinca"></ion-toggle>
+	</ion-item>
+	<ion-item>
+		<ion-label>Cordão Fino</ion-label>
+		<ion-toggle [(ngModel)]="item.cordaoFino"></ion-toggle>
+	</ion-item>
+	<ion-item>
+		<ion-label>Falta de Fusão</ion-label>
+		<ion-toggle [(ngModel)]="item.faltaFusao"></ion-toggle>
+	</ion-item>
+	<ion-item>
+		<ion-label>Cordão Largo</ion-label>
+		<ion-toggle [(ngModel)]="item.cordaoLargo"></ion-toggle>
+	</ion-item>
+	<ion-item>
+		<ion-label>Respingo</ion-label>
+		<ion-toggle [(ngModel)]="item.respingo"></ion-toggle>
+	</ion-item>
+	<ion-item>
+		<ion-label>Desalinhamento</ion-label>
+		<ion-toggle [(ngModel)]="item.desalinhamento"></ion-toggle>
+	</ion-item>
+	<ion-item>
+		<ion-label>Falta de Penetracão</ion-label>
+		<ion-toggle [(ngModel)]="item.faltaPenetracao"></ion-toggle>
+	</ion-item>
 
-   
 	<ion-grid>
 		<ion-row>
-	  		<ion-col width-50>
-
-	  			<button  style="width:100%" ion-button large color="danger" [outline]="item.aprovado" (click)="reprovar()">
-	  				 <ion-icon name="thumbs-down" ></ion-icon>
-	  			</button>
-
-	  		</ion-col>
-	  		<ion-col width-50>
-
-	  			<button  style="width:100%" ion-button large color="secondary" (click)="aprovar()" [outline]="!item.aprovado">
-	  				<ion-icon name="thumbs-up" ></ion-icon>
-	  			</button>
-	  		</ion-col>
+			<ion-col width-50>
+				<button style="width:100%" ion-button large color="danger" [outline]="item.aprovado"
+					(click)="reprovar()">
+					<ion-icon name="thumbs-down"></ion-icon>
+				</button>
+			</ion-col>			
+			<ion-col width-50>
+				<button style="width:100%" ion-button large color="secondary" (click)="aprovar()"
+					[outline]="!item.aprovado">
+					<ion-icon name="thumbs-up"></ion-icon>
+				</button>
+			</ion-col>
 		</ion-row>
 	</ion-grid>
 
-    <button ion-button block (click)="salvar()">Salvar</button>
-	<button ion-button secondary block (click)="createPdf()" >Relatório</button>
+	<button ion-button block (click)="salvar()">Salvar</button>
 
-   
-	
 </ion-content>

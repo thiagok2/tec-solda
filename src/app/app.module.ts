@@ -12,6 +12,16 @@ import { FileOpener } from '@ionic-native/file-opener'
 import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
+import { GooglePlus } from '@ionic-native/google-plus';
+import { HttpModule , JsonpModule } from '@angular/http'
+
+
+import { Facebook } from '@ionic-native/facebook';
+import { AngularFireModule } from '@angular/fire';
+import *as firebase from 'firebase';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { Items } from '../mocks/providers/items';
 import { Settings } from '../providers/providers';
@@ -20,12 +30,17 @@ import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 import { InspecaoProvider } from '../providers/inspecao/inspecao';
 import { SoldadorProvider } from '../providers/soldador/soldador';
+import { firebaseConfig } from './firebase.config';
+import { PdfCreateProvider } from '../providers/create-pdf/pdf-create';
+import { DatabaseProvider } from '../providers/database/database';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+firebase.initializeApp(firebaseConfig);
 
 export function provideSettings(storage: Storage) {
   /**
@@ -67,8 +82,14 @@ export function provideSettings(storage: Storage) {
       monthShortNames: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez' ],
       dayNames: ['domingo', 'segunda-feira', 'ter\u00e7a-feira', 'quarta-feira','quinta-feira','sexta-feira','s\u00e1bado'],
       dayShortNames: ['dom', 'seg', 'ter', 'qua', 'qui',  'sex', 'sab' ]
-     }),
-    IonicStorageModule.forRoot()
+    }),
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    HttpModule,
+    JsonpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -89,7 +110,11 @@ export function provideSettings(storage: Storage) {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     InspecaoProvider,
     SoldadorProvider,
-    FileOpener
+    FileOpener,
+    Facebook,
+    GooglePlus,
+    PdfCreateProvider,
+    DatabaseProvider
   ]
 })
 export class AppModule { }

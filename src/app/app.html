@@ -1,18 +1,52 @@
 <ion-menu [content]="content">
   <ion-header class="header_menu">
-    <ion-toolbar >
+    <ion-toolbar>
       <ion-title>TecSolda</ion-title>
     </ion-toolbar>
   </ion-header>
 
-    <ion-content>
-      <ion-list>
-        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          <ion-icon name="{{p.icon}}"></ion-icon>
-          {{p.title}}
-        </button>
-      </ion-list>
-    </ion-content>
+  <ion-content>
+    <ion-list>
+      <ion-grid *ngIf="!statusOfConnection">
+        <ion-row>
+          <ion-col width-50>
+            <button style="width:100%" ion-button large color=dark (click)="loginWithGoogle()">
+              <ion-icon name="logo-google"></ion-icon>
+            </button>
+          </ion-col>
+
+          <ion-col width-50>
+            <button style="width:100%" ion-button large color=dark (click)="loginWithFacebook()">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid *ngIf="statusOfConnection">
+        <ion-row>
+          <ion-col width-50>
+            <ion-avatar item-start>
+              <img [src]="user.imageUrl" style="border-radius: 20px">
+            </ion-avatar>
+            <h4> {{user.displayName}}</h4>
+            <p>~{{user.email}}~</p>
+          </ion-col>
+          <ion-col width-50>
+            <button style="width:100%; border-radius: 10px;" ion-button large color=dark (click)="logout()">
+              <ion-icon name="log-out"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name="{{p.icon}}"></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
 </ion-menu>
 
 

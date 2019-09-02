@@ -1,101 +1,78 @@
 <ion-header>
 
-	<ion-toolbar>
-		<ion-buttons start left>
-			<button ion-button icon-only menuToggle left>
-				<ion-icon name="menu"></ion-icon>
-			</button>
-		</ion-buttons>
+  <ion-toolbar>
+    <ion-buttons start left>
+      <button ion-button icon-only menuToggle left>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
 
-		<ion-title>Inspeções</ion-title>
+    <ion-title>Inspeções</ion-title>
 
-		<ion-buttons end right>
-			<button ion-button icon-only>
-				<ion-icon name="contact"></ion-icon>
-			</button>
-		</ion-buttons>
-	</ion-toolbar>
+    <ion-buttons end right>
+      <button ion-button icon-only>
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 
 </ion-header>
 
 <ion-content>
-	<ion-fab top right>
-		<button ion-fab (click)="novaInspecao()">
-			<ion-icon name="add"></ion-icon>
-		</button>
-	</ion-fab>
+  <ion-fab top right>
+    <button ion-fab (click)="novaInspecao()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
 
-	<ion-card *ngFor="let item of currentItems" padding>
+  <ion-card *ngFor="let item of currentItems" padding>
 
-		<ion-item>
-			<ion-avatar item-start>
-				<ion-icon name="contact"></ion-icon>
-			</ion-avatar>
-			<h2>{{item.inspetor}}</h2>
-			<p>{{item.dataInspecao}}</p>
-		</ion-item>
-		<img [src]="pathForImage(item.foto)" alt="" (click)="abrirDetalhes(item)">
+    <ion-item>
+      <ion-avatar item-start>
+        <ion-icon name="contact"></ion-icon>
+      </ion-avatar>
+      <h2>{{item.soldador}}</h2>
+      <p>{{dateFormatToDisplay(item.dataInspecao)}}</p>
+    </ion-item>
+    <img [src]="pathForImage(item.foto)" alt="" (click)="abrirDetalhes(item)">
 
-		<ion-item>
-			<ion-avatar item-start>
-				<ion-icon name="clipboard"></ion-icon>
-			</ion-avatar>
-			<h2>{{item.soldador}}</h2>
-			<ion-avatar item-end>
-				<ion-icon name="thumbs-up" *ngIf="item.aprovado"></ion-icon>
-				<ion-icon name="thumbs-down" *ngIf="!item.aprovado"></ion-icon>
-			</ion-avatar>
-		</ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+        <ion-icon name="clipboard"></ion-icon>
+      </ion-avatar>
+      <h2>{{item.inspetor}}</h2>
+      <ion-avatar item-end>
+        <ion-icon name="thumbs-up" *ngIf="item.aprovado"></ion-icon>
+        <ion-icon name="thumbs-down" *ngIf="!item.aprovado"></ion-icon>
+      </ion-avatar>
 
-		<ion-card-content padding>
+    </ion-item>
+    <ion-item>
 
-			<ion-item *ngIf="item.observacoes">
-				<h2>Observacoes</h2>
-				<p>{{item.observacoes}}</p>
-			</ion-item>
-
-			<ion-list ion-select *ngIf="false">
-				<ion-item>
-					<h2 item-start>Mordedura</h2>
-					<ion-icon [name]="retornaIcones(item.mordedura)" item-end></ion-icon>
-				</ion-item>
-				<ion-item>
-					<h2 item-start>Poros</h2>
-					<ion-icon [name]="retornaIcones(item.poros)" item-end></ion-icon>
-				</ion-item>
-				<ion-item>
-					<h2 item-start>Trinca</h2>
-					<ion-icon [name]="retornaIcones(item.trinca)" item-end></ion-icon>
-				</ion-item>
-				<ion-item>
-					<h2 item-start>Cordao Fino</h2>
-					<ion-icon [name]="retornaIcones(item.cordaoFino)" item-end></ion-icon>
-				</ion-item>
-				<ion-item>
-					<h2 item-start>Falta Fusao</h2>
-					<ion-icon [name]="retornaIcones(item.faltaFusao)" item-end></ion-icon>
-				</ion-item>
-				<ion-item>
-					<h2 item-start>Cordao Largo</h2>
-					<ion-icon [name]="retornaIcones(item.cordaoLargo)" item-end></ion-icon>
-				</ion-item>
-				<ion-item>
-					<h2 item-start>Respingo</h2>
-					<ion-icon [name]="retornaIcones(item.respingo)" item-end></ion-icon>
-				</ion-item>
-				<ion-item>
-					<h2 item-start>Desalinhamento</h2>
-					<ion-icon [name]="retornaIcones(item.desalinhamento)" item-end></ion-icon>
-				</ion-item>
-				<ion-item>
-					<h2 item-start>Falta Penetracao</h2>
-					<ion-icon [name]="retornaIcones(item.faltaPenetracao)" item-end></ion-icon>
-				</ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col width-30>
+            <button color=light style="width:100%" ion-button (click)="uploadCardInspection(item)" large padding>
+              <ion-icon name="cloud-upload"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col width-30>
+            <button color=light style="width:100%" ion-button (click)="createPdf(item)" large padding>
+              <ion-icon name="paper"></ion-icon>
+            </button>
+          </ion-col>
+          
+          <ion-col width-30>
+            <button color=light style="width:100%" ion-button (click)="deleteInspect(item.key)" large padding>
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 
 
-			</ion-list>
-		</ion-card-content>
+    </ion-item>
 
-	</ion-card>
+  </ion-card>
 
 </ion-content>
