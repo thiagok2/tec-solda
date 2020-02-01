@@ -20,7 +20,19 @@ Essa nova submissão visa a continuidade do projeto já desenvolvido. A soluçã
 
 ionic serve
 
+## Configuração de Ambiente do Projeto - Ionic v3
+
+   Para configurar o ambiente do projeto, será necessário ter o [nodejs](https://nodejs.org/pt-br/docs/) na versão 8.x , instalado na máquina. Após o nodejs está disponível, use o <strong>npm</strong> para instalar o [ionic](https://ionicframework.com/docs/v3/) na versão 3, e o [cordova](https://cordova.apache.org/docs/en/7.x/) na versão 7.
+  
+    $ npm install -g ionic@4.2
+    $ npm install -g cordova@7
+    
+   Também é necessário baixar e instalar o [Android Studio](https://developer.android.com/studio). Após a instalação do Android Studio, localize o SDK do android no seu sistema operacional, e faça a criação das variáveis de ambiente(segue o exemplo abaixo) e as adicione ao PATH do seu sistema operacional. Se, seu sistema operacional for <strong>linux</strong>, dependendo da distribuição poderá adicionar as variaveis de ambiente aos documentos <strong>.bashrc</strong> ou <strong>.profile</strong> , 
+   
+   
+
 ## Emulação
+
 
 1. Instalar Android Studio, definir as variáveis de ambiente do android(ANDROID_HOME) e gradle.
 2. Criar AVDs na mesma versão da plataforma adicionada na instalação.
