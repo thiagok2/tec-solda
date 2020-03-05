@@ -30,6 +30,15 @@ ionic serve
    Também é necessário baixar e instalar o [Android Studio](https://developer.android.com/studio). Após a instalação do Android Studio, localize o SDK do android no seu sistema operacional, e faça a criação das variáveis de ambiente(segue o exemplo abaixo) e as adicione ao PATH do seu sistema operacional. Se, seu sistema operacional for <strong>linux</strong>, dependendo da distribuição poderá adicionar as variaveis de ambiente aos documentos <strong>.bashrc</strong> ou <strong>.profile</strong> , 
    
    
+## Build aplicação para android
+
+1. Adicione a plataforma android ao projeto.
+
+       $ ionic cordova platform add android
+  
+2. Em seguida execute o comando para gerar o apk(ao final da execução do comando será exibido o local do apk).
+
+       $ ionic cordova build android
 
 ## Emulação
 
