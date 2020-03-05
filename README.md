@@ -27,7 +27,9 @@ ionic serve
     $ npm install -g ionic@4.2
     $ npm install -g cordova@7
     
-   Também é necessário baixar e instalar o [Android Studio](https://developer.android.com/studio). Após a instalação do Android Studio, localize o SDK do android no seu sistema operacional, e faça a criação das variáveis de ambiente(segue o exemplo abaixo) e as adicione ao PATH do seu sistema operacional. Se, seu sistema operacional for <strong>linux</strong>, dependendo da distribuição poderá adicionar as variaveis de ambiente aos documentos <strong>.bashrc</strong> ou <strong>.profile</strong> , 
+   Também é necessário baixar e instalar o [Android Studio](https://developer.android.com/studio). Após a instalação do Android Studio, localize o SDK do android no seu sistema operacional, e faça a criação das variáveis de ambiente(segue o exemplo abaixo) e as adicione ao PATH do seu sistema operacional. Se, seu sistema operacional for <strong>linux</strong>, dependendo da distribuição poderá adicionar as variaveis de ambiente aos documentos <strong>.bashrc</strong> ou <strong>.profile</strong>.
+   
+   ![alt path](https://github.com/thiagok2/tec-solda/blob/master/src/assets/config/variaveis_ambiente.png)
    
    
 ## Build aplicação para android
